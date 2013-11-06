@@ -1,0 +1,1449 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>LiquidMAdViewController Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 961)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">LiquidM iOS SDK </a></h1>
+				<a id="developerHome" href="../index.html">LiquidM</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">LiquidMAdViewController Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/adSize">&nbsp;&nbsp;&nbsp;&nbsp;adSize</option>
+	
+	<option value="//api/name/animationDuration">&nbsp;&nbsp;&nbsp;&nbsp;animationDuration</option>
+	
+	<option value="//api/name/animationType">&nbsp;&nbsp;&nbsp;&nbsp;animationType</option>
+	
+	<option value="//api/name/currentAdClass">&nbsp;&nbsp;&nbsp;&nbsp;currentAdClass</option>
+	
+	<option value="//api/name/tokenTag">&nbsp;&nbsp;&nbsp;&nbsp;tokenTag</option>
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/controllerWithRootViewController:adClass:">&nbsp;&nbsp;&nbsp;&nbsp;+ controllerWithRootViewController:adClass:</option>
+	
+	<option value="//api/name/controllerWithRootViewController:adClass:backfillingAdapter:">&nbsp;&nbsp;&nbsp;&nbsp;+ controllerWithRootViewController:adClass:backfillingAdapter:</option>
+	
+	<option value="//api/name/controllerWithRootViewController:adClass:options:">&nbsp;&nbsp;&nbsp;&nbsp;+ controllerWithRootViewController:adClass:options:</option>
+	
+	<option value="//api/name/controllerWithRootViewController:adClass:options:backfillingAdapter:">&nbsp;&nbsp;&nbsp;&nbsp;+ controllerWithRootViewController:adClass:options:backfillingAdapter:</option>
+	
+	<option value="//api/name/controllerWithRootViewController:adSize:">&nbsp;&nbsp;&nbsp;&nbsp;+ controllerWithRootViewController:adSize:</option>
+	
+	<option value="//api/name/controllerWithRootViewController:adSize:backfillingAdapter:">&nbsp;&nbsp;&nbsp;&nbsp;+ controllerWithRootViewController:adSize:backfillingAdapter:</option>
+	
+	<option value="//api/name/controllerWithRootViewController:adSize:options:">&nbsp;&nbsp;&nbsp;&nbsp;+ controllerWithRootViewController:adSize:options:</option>
+	
+	<option value="//api/name/controllerWithRootViewController:adSize:options:backfillingAdapter:">&nbsp;&nbsp;&nbsp;&nbsp;+ controllerWithRootViewController:adSize:options:backfillingAdapter:</option>
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/presentAd">&nbsp;&nbsp;&nbsp;&nbsp;- presentAd</option>
+	
+	<option value="//api/name/reloadAd">&nbsp;&nbsp;&nbsp;&nbsp;- reloadAd</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Serve by Ad Class">Serve by Ad Class</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Serve by Dimension">Serve by Dimension</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Controlling Animations">Controlling Animations</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Controlling Ad Loading">Controlling Ad Loading</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/adSize">adSize</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/animationDuration">animationDuration</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/animationType">animationType</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentAdClass">currentAdClass</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/tokenTag">tokenTag</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/controllerWithRootViewController:adClass:">controllerWithRootViewController:adClass:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/controllerWithRootViewController:adClass:backfillingAdapter:">controllerWithRootViewController:adClass:backfillingAdapter:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/controllerWithRootViewController:adClass:options:">controllerWithRootViewController:adClass:options:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/controllerWithRootViewController:adClass:options:backfillingAdapter:">controllerWithRootViewController:adClass:options:backfillingAdapter:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/controllerWithRootViewController:adSize:">controllerWithRootViewController:adSize:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/controllerWithRootViewController:adSize:backfillingAdapter:">controllerWithRootViewController:adSize:backfillingAdapter:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/controllerWithRootViewController:adSize:options:">controllerWithRootViewController:adSize:options:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/controllerWithRootViewController:adSize:options:backfillingAdapter:">controllerWithRootViewController:adSize:options:backfillingAdapter:</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/presentAd">presentAd</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/reloadAd">reloadAd</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="LiquidMAdViewController Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">LiquidMAdViewController Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">UIViewController</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">LiquidMAdViewController.h</td>
+</tr>
+						</tbody></table></div>
+					
+                    
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>This class provides an easy approach for integrating LiquidM ads into an
+iOS application. It&rsquo;s interface is intentionally kept simple to faciliate the
+integration.</p>
+
+<p>For a basic integration all it needs is just a UIViewController and a
+LiquidMAdClass to run. For further integration instructions please consult
+the integration tutorial.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						<a title="Serve by Ad Class" name="task_Serve by Ad Class"></a>
+						<h3 class="subsubtitle task-title">Serve by Ad Class</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/controllerWithRootViewController:adClass:">+&nbsp;controllerWithRootViewController:adClass:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/presentAd">&ndash;&nbsp;presentAd</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/reloadAd">&ndash;&nbsp;reloadAd</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/controllerWithRootViewController:adClass:options:">+&nbsp;controllerWithRootViewController:adClass:options:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/controllerWithRootViewController:adClass:backfillingAdapter:">+&nbsp;controllerWithRootViewController:adClass:backfillingAdapter:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/controllerWithRootViewController:adClass:options:backfillingAdapter:">+&nbsp;controllerWithRootViewController:adClass:options:backfillingAdapter:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Serve by Dimension" name="task_Serve by Dimension"></a>
+						<h3 class="subsubtitle task-title">Serve by Dimension</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/controllerWithRootViewController:adSize:">+&nbsp;controllerWithRootViewController:adSize:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/controllerWithRootViewController:adSize:options:">+&nbsp;controllerWithRootViewController:adSize:options:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/controllerWithRootViewController:adSize:backfillingAdapter:">+&nbsp;controllerWithRootViewController:adSize:backfillingAdapter:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/controllerWithRootViewController:adSize:options:backfillingAdapter:">+&nbsp;controllerWithRootViewController:adSize:options:backfillingAdapter:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Controlling Animations" name="task_Controlling Animations"></a>
+						<h3 class="subsubtitle task-title">Controlling Animations</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/animationDuration">&nbsp;&nbsp;animationDuration</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/animationType">&nbsp;&nbsp;animationType</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Controlling Ad Loading" name="task_Controlling Ad Loading"></a>
+						<h3 class="subsubtitle task-title">Controlling Ad Loading</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/adSize">&nbsp;&nbsp;adSize</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/currentAdClass">&nbsp;&nbsp;currentAdClass</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/tokenTag">&nbsp;&nbsp;tokenTag</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/adSize" title="adSize"></a>
+	<h3 class="subsubtitle method-title">adSize</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Size of the ad to load</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) CGSize adSize</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LiquidMAdViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/animationDuration" title="animationDuration"></a>
+	<h3 class="subsubtitle method-title">animationDuration</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The duration length in seconds of the animation between two ads.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) double animationDuration</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LiquidMAdViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/animationType" title="animationType"></a>
+	<h3 class="subsubtitle method-title">animationType</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The type of animation used for the transition between two ads.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) LiquidMAnimationClass animationType</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>It must must be of the following predefined values:</p>
+
+<ul>
+<li><strong>LiquidMAnimationClassCurlDown</strong> (default): next ad curls down on the old
+ one like a turning page</li>
+<li><strong>LiquidMAnimationClassLeftToRight</strong>: new ad pushed old one out from the
+ left</li>
+<li><strong>LiquidMAnimationClassTopToBottom</strong>: new ad pushed old one out from the
+ top</li>
+<li><strong>LiquidMAnimationClassFade</strong>: new ad fades in while the old ad fades out</li>
+</ul>
+
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LiquidMAdViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/currentAdClass" title="currentAdClass"></a>
+	<h3 class="subsubtitle method-title">currentAdClass</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Ad class used for the ads to load and display an ad.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) LiquidMAdClass currentAdClass</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>it can have one of the following values:</p>
+
+<ul>
+<li>LiquidMAdClassMMA</li>
+<li>LiquidMAdClassMediumRectangle</li>
+<li>LiquidMAdClassLeaderboard</li>
+<li>LiquidMAdClassFullscreen</li>
+<li>LiquidMAdClassPortrait</li>
+<li>LiquidMAdClassLandscape</li>
+<li>LiquidMAdClassRichMedia</li>
+<li>LiquidMAdClassIphonePreloader</li>
+<li>LiquidMAdClassIpadPreloader</li>
+<li>LiquidMAdClassIphonePreloaderLandscape</li>
+<li>LiquidMAdClassIpadPreloaderPortrait</li>
+</ul>
+
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LiquidMAdViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/tokenTag" title="tokenTag"></a>
+	<h3 class="subsubtitle method-title">tokenTag</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The tag that is being used to search for an app token in the app&rsquo;s
+plist file.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) NSString *tokenTag</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>App tokens should be added to the plist file in a dictionary called
+<code>LiquidMAppIDs</code> with its tag as a key and the token itself as a value. For testing purposes you should
+at least add the &ldquo;default&rdquo; tag&rsquo;s token to properly load an ad.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LiquidMAdViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/controllerWithRootViewController:adClass:" title="controllerWithRootViewController:adClass:"></a>
+	<h3 class="subsubtitle method-title">controllerWithRootViewController:adClass:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Convenience initializer which works just like
+<a href="#//api/name/controllerWithRootViewController:adClass:options:"><code>controllerWithRootViewController:adClass:options:</code></a></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (LiquidMAdViewController *)controllerWithRootViewController:(UIViewController *)<em>rvc</em> adClass:(LiquidMAdClass)<em>adClass</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>rvc</em></dt>
+			<dd><p>the UIViewController that is used to present the ad and all its
+additional features.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>adClass</em></dt>
+			<dd><p>A legacy ad class that determines the size of the placement.
+Possible values are:</p>
+
+<ul>
+<li>MadvertiseAdClassMMA – 320 x 53</li>
+<li>MadvertiseAdClassMediumRectangle – 300 x 250</li>
+<li>MadvertiseAdClassLeaderboard – 728 x 90</li>
+<li>MadvertiseAdClassFullscreen – 768 x 768</li>
+<li>MadvertiseAdClassPortrait – 766 x 66</li>
+<li>MadvertiseAdClassLandscape – 1024 x 66</li>
+<li>MadvertiseAdClassRichMedia – 320 x 480</li>
+<li>MadvertiseAdClassIphonePreloader – 320 x 460</li>
+<li>MadvertiseAdClassIpadPreloader – 1024 x 748</li>
+<li>MadvertiseAdClassIphonePreloaderLandscape – 480 x 300</li>
+<li>MadvertiseAdClassIpadPreloaderPortrait – 768 x 1004</li>
+</ul>
+</dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>a fully initialized instance of a LiquidMAdViewController</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The token tag property will be initialized with the &ldquo;default&rdquo; tag.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/controllerWithRootViewController:adClass:options:">+ controllerWithRootViewController:adClass:options:</a></p></code></li>
+			
+			<li><code><p><a href="#//api/name/currentAdClass">@property currentAdClass</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LiquidMAdViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/controllerWithRootViewController:adClass:backfillingAdapter:" title="controllerWithRootViewController:adClass:backfillingAdapter:"></a>
+	<h3 class="subsubtitle method-title">controllerWithRootViewController:adClass:backfillingAdapter:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializes a LiquidMAdViewController with all needed information.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (LiquidMAdViewController *)controllerWithRootViewController:(UIViewController *)<em>rvc</em> adClass:(LiquidMAdClass)<em>adClass</em> backfillingAdapter:(id&lt;LiquidMBackfillingAdapter&gt;)<em>adapter</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>rvc</em></dt>
+			<dd><p>the UIViewController that is used to present the ad and all its
+additional features.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>adClass</em></dt>
+			<dd><p>A legacy ad class that determines the size of the placement.
+Possible values are:</p>
+
+<ul>
+<li>MadvertiseAdClassMMA – 320 x 53</li>
+<li>MadvertiseAdClassMediumRectangle – 300 x 250</li>
+<li>MadvertiseAdClassLeaderboard – 728 x 90</li>
+<li>MadvertiseAdClassFullscreen – 768 x 768</li>
+<li>MadvertiseAdClassPortrait – 766 x 66</li>
+<li>MadvertiseAdClassLandscape – 1024 x 66</li>
+<li>MadvertiseAdClassRichMedia – 320 x 480</li>
+<li>MadvertiseAdClassIphonePreloader – 320 x 460</li>
+<li>MadvertiseAdClassIpadPreloader – 1024 x 748</li>
+<li>MadvertiseAdClassIphonePreloaderLandscape – 480 x 300</li>
+<li>MadvertiseAdClassIpadPreloaderPortrait – 768 x 1004</li>
+</ul>
+</dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>adapter</em></dt>
+			<dd><p>The adapter used for backfilling.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>a fully initialized instance of a LiquidMAdViewController</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/currentAdClass">@property currentAdClass</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LiquidMAdViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/controllerWithRootViewController:adClass:options:" title="controllerWithRootViewController:adClass:options:"></a>
+	<h3 class="subsubtitle method-title">controllerWithRootViewController:adClass:options:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializes a LiquidMAdViewController with all needed information.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (LiquidMAdViewController *)controllerWithRootViewController:(UIViewController *)<em>rvc</em> adClass:(LiquidMAdClass)<em>adClass</em> options:(NSDictionary *)<em>optionsDict</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>rvc</em></dt>
+			<dd><p>the UIViewController that is used to present the ad and all its
+additional features.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>adClass</em></dt>
+			<dd><p>A legacy ad class that determines the size of the placement.
+Possible values are:</p>
+
+<ul>
+<li>MadvertiseAdClassMMA – 320 x 53</li>
+<li>MadvertiseAdClassMediumRectangle – 300 x 250</li>
+<li>MadvertiseAdClassLeaderboard – 728 x 90</li>
+<li>MadvertiseAdClassFullscreen – 768 x 768</li>
+<li>MadvertiseAdClassPortrait – 766 x 66</li>
+<li>MadvertiseAdClassLandscape – 1024 x 66</li>
+<li>MadvertiseAdClassRichMedia – 320 x 480</li>
+<li>MadvertiseAdClassIphonePreloader – 320 x 460</li>
+<li>MadvertiseAdClassIpadPreloader – 1024 x 748</li>
+<li>MadvertiseAdClassIphonePreloaderLandscape – 480 x 300</li>
+<li>MadvertiseAdClassIpadPreloaderPortrait – 768 x 1004</li>
+</ul>
+</dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>options</em></dt>
+			<dd><p>A dictionary that contains optional parameters.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The options dictionary can contain a key called
+<code>LiquidMAdViewControllerOptionTokenTag</code> whose value is the name (as <code>NSString</code>)
+of the tag to use to load the token for ad loading (default is <code>@"default"</code>),
+and a key called <code>LiquidMAdViewControllerOptionReload</code> which should have a
+boolean value that determines the manual reloading of ads (default is <code>YES</code>).
+Note that <code>NSDictionary</code> can only hold objects. The boolean value has therfore
+to be wrapped in a <code>NSNumber</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LiquidMAdViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/controllerWithRootViewController:adClass:options:backfillingAdapter:" title="controllerWithRootViewController:adClass:options:backfillingAdapter:"></a>
+	<h3 class="subsubtitle method-title">controllerWithRootViewController:adClass:options:backfillingAdapter:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializes a MadvertiseAdViewController with all needed information.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (LiquidMAdViewController *)controllerWithRootViewController:(UIViewController *)<em>rvc</em> adClass:(LiquidMAdClass)<em>adClass</em> options:(NSDictionary *)<em>optionsDict</em> backfillingAdapter:(id&lt;LiquidMBackfillingAdapter&gt;)<em>adapter</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>rvc</em></dt>
+			<dd><p>the UIViewController that is used to present the ad and all its
+additional features.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>adClass</em></dt>
+			<dd><p>A legacy ad class that determines the size of the placement.
+Possible values are:</p>
+
+<ul>
+<li>MadvertiseAdClassMMA – 320 x 53</li>
+<li>MadvertiseAdClassMediumRectangle – 300 x 250</li>
+<li>MadvertiseAdClassLeaderboard – 728 x 90</li>
+<li>MadvertiseAdClassFullscreen – 768 x 768</li>
+<li>MadvertiseAdClassPortrait – 766 x 66</li>
+<li>MadvertiseAdClassLandscape – 1024 x 66</li>
+<li>MadvertiseAdClassRichMedia – 320 x 480</li>
+<li>MadvertiseAdClassIphonePreloader – 320 x 460</li>
+<li>MadvertiseAdClassIpadPreloader – 1024 x 748</li>
+<li>MadvertiseAdClassIphonePreloaderLandscape – 480 x 300</li>
+<li>MadvertiseAdClassIpadPreloaderPortrait – 768 x 1004</li>
+</ul>
+</dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>options</em></dt>
+			<dd><p>A dictionary that contains optional parameters.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>a fully initialized instance of a MadvertiseAdViewController</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The options dictionary can contain a key called
+<code>LiquidMAdViewControllerOptionTokenTag</code> whose value is the name (as <code>NSString</code>)
+of the tag to use to load the token for ad loading (default is <code>@"default"</code>),
+and a key called <code>LiquidMAdViewControllerOptionReload</code> which should have a
+boolean value that determines the manual reloading of ads (default is <code>YES</code>).
+Note that <code>NSDictionary</code> can only hold objects. The boolean value has therfore
+to be wrapped in a <code>NSNumber</code>.</p><div class="warning"><p><strong>Warning:</strong> This initializer is deprecated. Usage of it is discouraged in favor of
+<code>initWithRootViewController:adSize:options:</code></p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LiquidMAdViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/controllerWithRootViewController:adSize:" title="controllerWithRootViewController:adSize:"></a>
+	<h3 class="subsubtitle method-title">controllerWithRootViewController:adSize:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializes a MadvertiseAdViewController with all needed information.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (LiquidMAdViewController *)controllerWithRootViewController:(UIViewController *)<em>rvc</em> adSize:(CGSize)<em>adSize</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>rvc</em></dt>
+			<dd><p>the UIViewController that is used to present the ad and all its
+additional features.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>adSize</em></dt>
+			<dd><p>The size of the ad to load
+Standard sizes are</p>
+
+<ul>
+<li>320 x 53</li>
+<li>300 x 250</li>
+<li>728 x 90</li>
+<li>768 x 768</li>
+<li>766 x 66</li>
+<li>1024 x 66</li>
+<li>320 x 480</li>
+<li>320 x 460</li>
+<li>1024 x 748</li>
+<li>480 x 300</li>
+<li>768 x 1004</li>
+</ul>
+</dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>a fully initialized instance of a MadvertiseAdViewController</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LiquidMAdViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/controllerWithRootViewController:adSize:backfillingAdapter:" title="controllerWithRootViewController:adSize:backfillingAdapter:"></a>
+	<h3 class="subsubtitle method-title">controllerWithRootViewController:adSize:backfillingAdapter:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializes a MadvertiseAdViewController with all needed information.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (LiquidMAdViewController *)controllerWithRootViewController:(UIViewController *)<em>rvc</em> adSize:(CGSize)<em>adSize</em> backfillingAdapter:(id&lt;LiquidMBackfillingAdapter&gt;)<em>adapter</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>rvc</em></dt>
+			<dd><p>the UIViewController that is used to present the ad and all its
+additional features.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>adSize</em></dt>
+			<dd><p>The size of the ad to load
+Standard sizes are</p>
+
+<ul>
+<li>320 x 53</li>
+<li>300 x 250</li>
+<li>728 x 90</li>
+<li>768 x 768</li>
+<li>766 x 66</li>
+<li>1024 x 66</li>
+<li>320 x 480</li>
+<li>320 x 460</li>
+<li>1024 x 748</li>
+<li>480 x 300</li>
+<li>768 x 1004</li>
+</ul>
+</dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>a fully initialized instance of a MadvertiseAdViewController</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LiquidMAdViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/controllerWithRootViewController:adSize:options:" title="controllerWithRootViewController:adSize:options:"></a>
+	<h3 class="subsubtitle method-title">controllerWithRootViewController:adSize:options:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializes a MadvertiseAdViewController with all needed information.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (LiquidMAdViewController *)controllerWithRootViewController:(UIViewController *)<em>rvc</em> adSize:(CGSize)<em>adSize</em> options:(NSDictionary *)<em>optionsDict</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>rvc</em></dt>
+			<dd><p>the UIViewController that is used to present the ad and all its
+additional features.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>adSize</em></dt>
+			<dd><p>The size of the ad to load
+Standard sizes are</p>
+
+<ul>
+<li>320 x 53</li>
+<li>300 x 250</li>
+<li>728 x 90</li>
+<li>768 x 768</li>
+<li>766 x 66</li>
+<li>1024 x 66</li>
+<li>320 x 480</li>
+<li>320 x 460</li>
+<li>1024 x 748</li>
+<li>480 x 300</li>
+<li>768 x 1004</li>
+</ul>
+</dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>options</em></dt>
+			<dd><p>A dictionary that contains optional parameters.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>a fully initialized instance of a MadvertiseAdViewController</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The options dictionary can contain a key called
+<code>LiquidMAdViewControllerOptionTokenTag</code> whose value is the name (as <code>NSString</code>)
+of the tag to use to load the token for ad loading (default is <code>@"default"</code>),
+and a key called <code>LiquidMAdViewControllerOptionReload</code> which should have a
+boolean value that determines the manual reloading of ads (default is <code>YES</code>).
+Note that <code>NSDictionary</code> can only hold objects. The boolean value has therfore
+to be wrapped in a <code>NSNumber</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LiquidMAdViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/controllerWithRootViewController:adSize:options:backfillingAdapter:" title="controllerWithRootViewController:adSize:options:backfillingAdapter:"></a>
+	<h3 class="subsubtitle method-title">controllerWithRootViewController:adSize:options:backfillingAdapter:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializes a MadvertiseAdViewController with all needed information.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (LiquidMAdViewController *)controllerWithRootViewController:(UIViewController *)<em>rvc</em> adSize:(CGSize)<em>adSize</em> options:(NSDictionary *)<em>optionsDict</em> backfillingAdapter:(id&lt;LiquidMBackfillingAdapter&gt;)<em>adapter</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>rvc</em></dt>
+			<dd><p>the UIViewController that is used to present the ad and all its
+additional features.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>adSize</em></dt>
+			<dd><p>The size of the ad to load
+Standard sizes are</p>
+
+<ul>
+<li>320 x 53</li>
+<li>300 x 250</li>
+<li>728 x 90</li>
+<li>768 x 768</li>
+<li>766 x 66</li>
+<li>1024 x 66</li>
+<li>320 x 480</li>
+<li>320 x 460</li>
+<li>1024 x 748</li>
+<li>480 x 300</li>
+<li>768 x 1004</li>
+</ul>
+</dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>options</em></dt>
+			<dd><p>A dictionary that contains optional parameters.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>a fully initialized instance of a MadvertiseAdViewController</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The options dictionary can contain a key called
+<code>LiquidMAdViewControllerOptionTokenTag</code> whose value is the name (as <code>NSString</code>)
+of the tag to use to load the token for ad loading (default is <code>@"default"</code>),
+and a key called <code>LiquidMAdViewControllerOptionReload</code> which should have a
+boolean value that determines the manual reloading of ads (default is <code>YES</code>).
+Note that <code>NSDictionary</code> can only hold objects. The boolean value has therfore
+to be wrapped in a <code>NSNumber</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LiquidMAdViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/presentAd" title="presentAd"></a>
+	<h3 class="subsubtitle method-title">presentAd</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Displays the ad view on the screen.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)presentAd</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>This method should always be called after receiving the ad from the server.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LiquidMAdViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/reloadAd" title="reloadAd"></a>
+	<h3 class="subsubtitle method-title">reloadAd</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Manually reloads the ads.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)reloadAd</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LiquidMAdViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+                    
+                    
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 LiquidM. All rights reserved. (Last updated: 2013-11-06)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

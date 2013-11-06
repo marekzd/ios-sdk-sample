@@ -1,0 +1,302 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>LiquidM iOS SDK Reference</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 961)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="index.html">LiquidM iOS SDK </a></h1>
+				<a id="developerHome" href="index.html">LiquidM</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">LiquidM iOS SDK Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar"></ul>
+		</header>
+		<article>
+			<div id="overview_contents" role="main">
+				<div class="main-navigation navigation-top">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">LiquidM iOS SDK Reference</h1>
+					</div>		
+				</div>
+				<div id="container">
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<p>This is the documentation for the LiquidM iOS SDK. It features integration
+instructions as well as a reference to all the classes that you&rsquo;ll need to
+integrate the SDK in your app.</p>
+
+<h1>Integration Instructions</h1>
+
+<ul>
+<li>unzip the framework</li>
+<li>place framework in your project directory</li>
+<li>link your app to the framework
+
+<ul>
+<li>click the plus sign</li>
+<li>click add other and pick LiquidM-iOS-SDK.framework in your project folder</li>
+</ul>
+</li>
+</ul>
+
+
+<p><img src="../images/tutorial/1-link-framework.png" height="593" width="882" alt="Linking against the framework" /></p>
+
+<ul>
+<li>add the following standard frameworks to the linking process
+
+<ul>
+<li>AudioToolbox</li>
+<li>MessageUI</li>
+<li>StoreKit</li>
+<li>SystemConfiguration</li>
+<li>AdSupport</li>
+<li>CoreMedia</li>
+<li>MediaPlayer</li>
+<li>EventKit</li>
+<li>EventKitUI</li>
+</ul>
+</li>
+</ul>
+
+
+<p><img src="../images/tutorial/2-add-linker-flags.png" height="426" width="878" alt="Adding necessary linker flags" /></p>
+
+<ul>
+<li>add the framework as a bundle resource</li>
+</ul>
+
+
+<p><img src="../images/tutorial/3-bundle-resources.png" height="500" width="879" alt="Adding the framework as a bundle resource" /></p>
+
+<ul>
+<li>configure at least one of your LiquidM app tokens under the key &ldquo;default&rdquo; in a dictionary called &ldquo;LiquidMAppIDs&rdquo;</li>
+<li>configure as many additional app IDs under this dictionary</li>
+</ul>
+
+
+<h1>Backfill Integration Instructions</h1>
+
+<ul>
+<li>add <code>-ObjC</code> to the linker flags</li>
+<li>Add the GoogleAdMobAdsSdkiOS-6.5.1 folder to the project.</li>
+<li>configure at least one of your AdMob ad unit id under the key &ldquo;default&rdquo; in a separate dictionary called &ldquo;AdMobBackfillingIDs&rdquo;</li>
+<li>configure as many additional app IDs under this dictionary</li>
+<li>Import &lt;LiquidM-iOS-SDK/LiquidMAdMobAdapter.h></li>
+</ul>
+
+
+<h1>Integration Examples</h1>
+
+<h2>Banner</h2>
+
+<pre><code>- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    NSDictionary *options = @{
+        LiquidMAdViewControllerOptionTokenTag: @"TAG_OF_TOKEN",
+        LiquidMAdViewControllerOptionReload: [NSNumber numberWithBool:NO]
+    };
+
+
+    lmAd = [LiquidMAdViewController controllerWithRootViewController:self
+                                                         adClass:LiquidMAdClassMMA
+                                                        options:options];
+    lmAd.delegate = self;                                                    
+    [self.view addSubview:lmAd.view];
+    [self.view bringSubviewToFront:lmAd.view];
+}
+</code></pre>
+
+<p>Aditional parameters like tokenTag or reload should be declared inside a NSDictionary.</p>
+
+<p>To present the banners and interstitials in the ViewController, you should call <code>presentAd</code></p>
+
+<pre><code>- (void)controllerDidReceiveAd:(LiquidMAdViewController *)controller
+{
+    [lmAd presentAd];
+}
+</code></pre>
+
+<h2>Interstitial</h2>
+
+<pre><code>- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    NSDictionary *options = @{
+        LiquidMAdViewControllerOptionTokenTag: @"TAG_OF_TOKEN",
+        LiquidMAdViewControllerOptionReload: [NSNumber numberWithBool:NO]
+    };
+
+
+    lmAd = [LiquidMAdViewController controllerWithRootViewController:self
+                                                         adClass:LiquidMAdClassRichMedia
+                                                        options:options];
+    lmAd.delegate = self;                                                 
+}
+</code></pre>
+
+<h2>Position banner at custom location on your view</h2>
+
+<p>You can position the ad banner on your available view just by setting its frame.</p>
+
+<pre><code>- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    NSDictionary *options = @{
+        LiquidMAdViewControllerOptionReload: [NSNumber numberWithBool:YES]
+    };
+
+    lmAd = [[LiquidMAdViewController alloc] initWithRootViewController:self
+                                                                   adClass:LiquidMAdClassMMA
+                                                                   options:options];
+    CGRect frame = CGRectMake(0,
+                              self.view.frame.size.height - lmAd.view.frame.size.height,
+                              lmAd.view.frame.size.width,
+                              lmAd.view.frame.size.height);
+    lmAd.view.frame = frame;
+    [self.view addSubview:lmAd.view];
+    [self.view bringSubviewToFront:lmAd.view];
+}
+</code></pre>
+
+<h2>Getting a banner using dimensions</h2>
+
+<p>You can obtain banners by making a request with their specific dimensions.</p>
+
+<pre><code>- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    lmAd = [LiquidMAdViewController controllerWithRootViewController:self
+                                                              adSize:CGSizeMake(320,53)
+                                                             options:nil];
+    lmAd.delegate = self;
+    [self.view addSubview:lmAd.view];
+    [self.view bringSubviewToFront:lmAd.view];
+}
+</code></pre>
+
+<h1>Backfill Integration Examples</h1>
+
+<h2>Banner</h2>
+
+<pre><code>- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+        NSDictionary *options = @{
+            LiquidMAdViewControllerOptionReload: [NSNumber numberWithBool:NO]
+        };
+
+        adMobAdapter = [[LiquidMAdMobAdapter alloc] init];
+        adMobAdapter.delegate = self;
+        adMobAdapter.tokenTag = @"default";
+        lmAd = [LiquidMAdViewController controllerWithRootViewController:self
+                                                                 adClass:LiquidMAdClassMMA
+                                                                 options:options
+                                                      backfillingAdapter:adMobAdapter];
+        lmAd.delegate = self;
+}
+</code></pre>
+
+<p>To present the banners and interstitials in the ViewController, you should call <code>presentAd</code></p>
+
+<pre><code>- (void)adapterDidReceiveAd:(id&lt;LiquidMBackfillingAdapter&gt;)adapter
+{
+    [lmAd presentAd];
+}
+</code></pre>
+
+<h2>Interstitial</h2>
+
+<pre><code>- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+        NSDictionary *options = @{
+            LiquidMAdViewControllerOptionReload: [NSNumber numberWithBool:NO]
+        };
+
+        adMobAdapter = [[LiquidMAdMobAdapter alloc] init];
+        adMobAdapter.delegate = self;
+        adMobAdapter.tokenTag = @"interstitial";
+        lmAd = [LiquidMAdViewController controllerWithRootViewController:self
+                                                                 adClass:LiquidMAdClassRichMedia
+                                                                 options:options
+                                                      backfillingAdapter:adMobAdapter];
+        lmAd.delegate = self;
+}
+</code></pre>
+						
+						
+					</div>
+					
+                        
+                    
+					
+					
+					<div class="index-column">
+						<h2 class="index-title">Class References</h2>
+						<ul>
+							
+							<li><a href="Classes/LiquidMAdMobAdapter.html">LiquidMAdMobAdapter</a></li>
+							
+							<li><a href="Classes/LiquidMAdViewController.html">LiquidMAdViewController</a></li>
+							
+						</ul>
+					</div>
+					
+					
+						
+					<div class="index-column">
+						
+						<h2 class="index-title">Protocol References</h2>
+						<ul>
+							
+							<li><a href="Protocols/LiquidMAdViewControllerDelegate.html">LiquidMAdViewControllerDelegate</a></li>
+							
+							<li><a href="Protocols/LiquidMBackfillingAdapter.html">LiquidMBackfillingAdapter</a></li>
+							
+							<li><a href="Protocols/LiquidMBackfillingAdapterDelegate.html">LiquidMBackfillingAdapterDelegate</a></li>
+							
+						</ul>
+						
+                        
+						
+					</div>
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 LiquidM. All rights reserved. (Last updated: 2013-11-06)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
+						
+	
+					</div>
+				</div>
+			</div>
+		</article>		
+	</body>
+</html>
