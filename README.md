@@ -28,7 +28,6 @@ Integration Instructions
 	- EventKit
 	- EventKitUI
 
-![Adding necessary linker flags](docs/images/tutorial/2-add-linker-flags.png)
 
 - add the framework as a bundle resource
 
@@ -41,6 +40,9 @@ Backfill Integration Instructions
 =================================
 
 - add `-ObjC` to the linker flags
+
+![Adding necessary linker flags](docs/images/tutorial/2-add-linker-flags.png)
+
 - add the GoogleAdMobAdsSdkiOS-6.5.1 folder to the project.
 - configure at least one of your AdMob ad unit id under the key "default" in a separate dictionary called "AdMobBackfillingIDs"
 - configure as many additional app IDs under this dictionary
