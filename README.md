@@ -44,7 +44,7 @@ Backfill Integration Instructions
 - add the GoogleAdMobAdsSdkiOS-6.5.1 folder to the project.
 - configure at least one of your AdMob ad unit id under the key "default" in a separate dictionary called "AdMobBackfillingIDs"
 - configure as many additional app IDs under this dictionary
-- import <LiquidM-iOS-SDK/LiquidMAdMobAdapter.h>
+- import `<LiquidM-iOS-SDK/LiquidMAdMobAdapter.h>`
 
 
 Integration Examples
