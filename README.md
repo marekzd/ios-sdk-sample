@@ -15,7 +15,7 @@ Integration Instructions
     - click the plus sign
     - click add other and pick LiquidM-iOS-SDK.framework in your project folder
 
-![Linking against the framework](docs/images/tutorial/1-link-framework.png =882x593)
+![Linking against the framework](docs/images/tutorial/1-link-framework.png)
 
 - add the following standard frameworks to the linking process
 	- AudioToolbox
@@ -28,11 +28,11 @@ Integration Instructions
 	- EventKit
 	- EventKitUI
 
-![Adding necessary linker flags](docs/images/tutorial/2-add-linker-flags.png =878x426)
+![Adding necessary linker flags](docs/images/tutorial/2-add-linker-flags.png)
 
 - add the framework as a bundle resource
 
-![Adding the framework as a bundle resource](docs/images/tutorial/3-bundle-resources.png =879x500)
+![Adding the framework as a bundle resource](docs/images/tutorial/3-bundle-resources.png)
 
 - configure at least one of your LiquidM app tokens under the key "default" in a dictionary called "LiquidMAppIDs"
 - configure as many additional app IDs under this dictionary
