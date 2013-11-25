@@ -101,6 +101,8 @@ typedef enum {
 + (NSBundle *)frameworkBundle;
 + (NSString *)templateWithName:(NSString *)templateName;
 
++ (BOOL)hasRetinaDisplay;
+
 @end
 
 @interface UIWebView (MPAdditions)

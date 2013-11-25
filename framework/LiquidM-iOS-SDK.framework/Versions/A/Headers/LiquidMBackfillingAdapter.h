@@ -11,13 +11,12 @@
 
 #import <UIKit/UIKit.h>
 
-/*!
- @discussion This class provides a protocol that can be used to incorporate
- the functionality of having backfilling with another ad network via its SDK.
- Backfilling is invoked when a LiquidM ad could not be served.
- */
-
 @protocol LiquidMBackfillingAdapter;
+
+/*!
+ This is the protocol that has to be implemented to set the
+ [LiquidMBackfillingAdapter delegate] property.
+ */
 
 @protocol LiquidMBackfillingAdapterDelegate <NSObject>
 
@@ -29,11 +28,17 @@
 
 /*!
  @abstract Method called when the loading of the ad is finished.
+ 
+ @param adapter The LiquidMBackfillingAdapter that received an ad
  */
 - (void)adapterDidReceiveAd:(id<LiquidMBackfillingAdapter>)adapter;
 
 /*!
  @abstract Method called when the loading of the ad failed.
+ 
+ @param adapter The LiquidMBackfillingAdapter that failed to receive an ad
+ 
+ @param error The error that occured when loading an ad
  */
 - (void)adapter:(id<LiquidMBackfillingAdapter>)adapter
         didFailToReceiveAdWithError:(NSError*)error;
@@ -44,33 +49,49 @@
 
 /*!
  @abstract Method called just before the ad's view will appear on screen.
+ 
+ @param adapter The LiquidMBackfillingAdapter that will present an ad
  */
 - (void)adapterWillPresentAd:(id<LiquidMBackfillingAdapter>)adapter;
 
 /*!
  @abstract Method called after the ad's view appeared on screen.
+ 
+ @param adapter The LiquidMBackfillingAdapter that did present an ad
  */
 - (void)adapterDidPresentAd:(id<LiquidMBackfillingAdapter>)adapter;
 
 /*!
  @abstract Method called just before the ad's view will disappear from screen.
+ 
+ @param adapter The LiquidMBackfillingAdapter that will dismiss an ad
  */
 - (void)adapterWillDismissAd:(id<LiquidMBackfillingAdapter>)adapter;
 
 /*!
  @abstract Method called after the ad's view disappeared from screen.
+ 
+ @param adapter The LiquidMBackfillingAdapter that did dismiss an ad
  */
 - (void)adapterDidDismissAd:(id<LiquidMBackfillingAdapter>)adapter;
 
 @end
+
+/*!
+ This protocol provides an interface that is needed to create an adapter for
+ backfilling via another network's SDK. Backfilling is triggered when a LiquidM
+ ad could not be served.
+ */
 
 @protocol LiquidMBackfillingAdapter <NSObject>
 
 @required
 
 /*!
- @abstract Delegate object that should be informed about load and display
- related events produced by the backfilling adapter.
+ @abstract The object that should be informed about load and display related 
+ events produced by the backfilling adapter.
+ 
+ @see LiquidMBackfillingAdapterDelegate
  */
 @property (nonatomic, weak) id<LiquidMBackfillingAdapterDelegate> delegate;
 
@@ -79,30 +100,29 @@
  */
 
 /*!
- @abstract The tag used to lookup a certain token in the adapters token 
+ @abstract The tag used to lookup a certain token in the adapters token
  dictionary configured in the app's plist.
  */
 @property (nonatomic, copy) NSString *tokenTag;
 
 /*!
  @abstract Initialization and loading of a banner ad
- 
- @discussion The `token` property needs to be initiated on a plist dictionary called 
- AdMobBackfillingIDs with its tag as a key and the token itself as a value.
- 
- @param size The size of the ad that matches the sizes established by Google AdMob.
- @param token The token tag that contains the value of the AdUnitID.
 
+ @param size The size of the ad to request
+ 
+ @discussion This method will use the tokenTag to lookup a query key for loading
+ an ad from the corresponding network.
+ 
+ The requested size will match the size that was set in the
+ LiquidMAdViewController
  */
 - (void)loadBannerWithSize:(CGSize)size;
 
 /*!
  @abstract Initialization and loading of an interstitial ad
- 
- @discussion The passed `token` can be loaded via 
- 
- @param token The token tag that contains the value of the AdUnitID.
- 
+
+ @discussion This method will use the tokenTag to lookup a query key for loading
+ an ad from the corresponding network.
  */
 - (void)loadInterstitial;
 
@@ -111,7 +131,10 @@
  */
 
 /*!
- @abstract Contains the banner view if it is loaded.
+ @abstract Contains the banner view
+ 
+ @discussion The banner view is only present if loaded, otherwise this property
+ should be `nil`.
  */
 @property (nonatomic, readonly) UIView *adView;
 
@@ -127,10 +150,10 @@
 /*!
  @abstract Method used to present the interstitial view on a selected view 
  controller.
- 
- @discussion This method presents the interstitial as soon as it is loaded.
- 
+
  @param vc The view controller that will present the adView.
+
+ @discussion This method presents the interstitial as soon as it is loaded.
  */
 - (void)presentInterstitialOnViewController:(UIViewController *)vc;
 
