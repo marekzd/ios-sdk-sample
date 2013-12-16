@@ -27,6 +27,7 @@ Integration Instructions
 	- MediaPlayer
 	- EventKit
 	- EventKitUI
+	- libxml2.dylib
 
 
 - add the framework as a bundle resource
