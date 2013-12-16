@@ -107,21 +107,28 @@
  | LiquidMAdClassIpadPreloader            | 1024 x 748 |
  | LiquidMAdClassIphonePreloaderLandscape | 480 x 300  |
  | LiquidMAdClassIpadPreloaderPortrait    | 768 x 1004 |
+ 
+ *Ad classes for video*:
+ 
+ | AdClass                     | Description                                       |
+ | --------------------------- | ------------------------------------------------- |
+ | LiquidMAdClassVideoPreRoll  | Video will be played before the content           |
+ | LiquidMAdClassVideoMidRoll  | Video will be played in the middle of the content |
+ | LiquidMAdClassVideoPostRoll | Video will be played after the content            |
 
  *Options*: The following key-value pairs can be part of a dictionary that can
  be passed to some of the factory methods for creating a LiquidMAdViewController
 
  | Key                                     | Value                                                                               |
  | --------------------------------------- | ----------------------------------------------------------------------------------- |
+ | `LiquidMAdViewControllerOptionToken`    | actual token to be used for ad loading                                              |
  | `LiquidMAdViewControllerOptionTokenTag` | name (NSString) of the tag for looking up the initial token (default: `@"default"`) |
  | `LiquidMAdViewControllerOptionReload`   | determines if automatic reloading should be used (BOOL).                            |
+ | `LiquidMAdViewControllerOptionLocation` | the user's location to be used for geo-targeting                                    |
 
  **Note** that you will have to wrap the BOOL into a `NSNumber` for putting it
  into a `NSDictionary` (default is `YES`)
  */
-
-#define LiquidMAdViewControllerOptionReload @"reload"
-#define LiquidMAdViewControllerOptionTokenTag @"tokenTag"
 
 @interface LiquidMAdViewController : UIViewController
 {
@@ -163,6 +170,7 @@
 
 
 #define LiquidMAdViewControllerOptionReload @"reload"
+#define LiquidMAdViewControllerOptionToken @"token"
 #define LiquidMAdViewControllerOptionTokenTag @"tokenTag"
 #define LiquidMAdViewControllerOptionLocation @"location"
 
@@ -388,14 +396,33 @@
 @property (nonatomic) LiquidMAdClass currentAdClass;
 
 /*!
- @abstract The tag that is being used to search for an app token in the app's
- plist file.
+ @abstract The tag that is being used to search for an app token from the in the
+ app's plist file preconfigured dictionary.
 
- @discussion App tokens should be added to the plist file in a dictionary called
- `LiquidMAppIDs` with its tag as a key and the token itself as a value. For testing purposes you should 
- at least add the "default" tag's token to properly load an ad.
+ @discussion App tokens can be added to the plist file in a dictionary called
+ `LiquidMAppIDs` with its tag as a key and the token itself as a value. If you
+ choose to use it you should at least add the "default" tag's token.
+ You can leave the plist file unconfigured but you would have to provide an
+ actual token at runtime.
+ You should choose to either use tokenTag or token for choosing a token for ad
+ loading.
+
+ @see token
  */
 @property (nonatomic, copy) NSString *tokenTag;
+
+/*!
+ @abstract The actual token that is used to load an ad.
+ 
+ @discussion If you leave this property untouched the SDK will try to load a
+ token dictionary from the app's plist file. On the other hand if you set it the
+ token you provided will be used directly for ad loading.
+ You should choose to either use tokenTag or token for choosing a token for ad
+ loading.
+ 
+ @see tokenTag
+ */
+@property (nonatomic, copy) NSString *token;
 
 /*!
  @abstract The location that is used for location based ads.

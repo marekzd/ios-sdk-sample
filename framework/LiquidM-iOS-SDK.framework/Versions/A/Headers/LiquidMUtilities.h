@@ -62,7 +62,10 @@ typedef enum {
     LiquidMAdClassIphonePreloader,
     LiquidMAdClassIpadPreloader,
     LiquidMAdClassIphonePreloaderLandscape,
-    LiquidMAdClassIpadPreloaderPortrait
+    LiquidMAdClassIpadPreloaderPortrait,
+    LiquidMAdClassVideoPreRoll,
+    LiquidMAdClassVideoMidRoll,
+    LiquidMAdClassVideoPostRoll
 } LiquidMAdClass;
 
 @interface LiquidMUtilities : NSObject
@@ -90,6 +93,7 @@ typedef enum {
 
 + (CGSize)liquidMAdClassSize:(LiquidMAdClass)adClass;
 + (NSString *)liquidMAdClassName:(LiquidMAdClass)adClass;
++ (BOOL)adClassIsVideo:(LiquidMAdClass)adClass;
 
 + (BOOL)isAdSizeFullscreen:(CGSize)adSize;
 + (BOOL)isAdSizeCustom:(CGSize)adSize;
