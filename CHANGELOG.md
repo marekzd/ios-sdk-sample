@@ -1,3 +1,11 @@
+1.1.1 (2013-12-16)
+==================
+
+Features
+--------
+
+- The token for actual loading of the ads can be added through the options dictionary.
+
 1.0.1 (2013-11-25)
 ==================
 
