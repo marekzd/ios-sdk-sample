@@ -23,7 +23,7 @@
     [super viewDidLoad];
     
     NSMutableDictionary *options = [NSMutableDictionary dictionary];
-    [options setObject:@"6aCmmWgi"
+    [options setObject:@"TestTokn"
                 forKey:LiquidMAdViewControllerOptionToken];
     [options setObject:[NSNumber numberWithBool:NO]
                 forKey:LiquidMAdViewControllerOptionReload];
