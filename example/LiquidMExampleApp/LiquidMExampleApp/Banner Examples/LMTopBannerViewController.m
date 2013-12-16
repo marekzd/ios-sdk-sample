@@ -21,9 +21,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSMutableDictionary *options = [NSMutableDictionary dictionary];
+    [options setObject:@"6aCmmWgi"
+                forKey:LiquidMAdViewControllerOptionToken];
+    [options setObject:[NSNumber numberWithBool:NO]
+                forKey:LiquidMAdViewControllerOptionReload];
+    
 
     lmAd = [LiquidMAdViewController controllerWithRootViewController:self
-                                                             adClass:LiquidMAdClassMMA];
+                                                             adClass:LiquidMAdClassMMA
+                                                             options:options];
     lmAd.delegate = self;
     CGRect frame = lmAd.view.frame;
     frame.origin = CGPointMake(0, 64);
