@@ -10,5 +10,8 @@
 #define LiquidM_iOS_SDK_LiquidM_h
 
 #import "LiquidMAdViewController.h"
+#import "LiquidMAdClasses.h"
+#import "LiquidMAnimationClasses.h"
+#import "LiquidMVideoViewController.h"
 
 #endif

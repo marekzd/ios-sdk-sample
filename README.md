@@ -1,6 +1,3 @@
-ios-sdk
-=======
-
 This is the documentation for the LiquidM iOS SDK. It features integration
 instructions as well as a reference to all the classes that you'll need to
 integrate the SDK in your app.
@@ -15,7 +12,7 @@ Integration Instructions
     - click the plus sign
     - click add other and pick LiquidM-iOS-SDK.framework in your project folder
 
-![Linking against the framework](docs/images/tutorial/1-link-framework.png)
+![Linking against the framework](../images/tutorial/1-link-framework.png =882x593)
 
 - add the following standard frameworks to the linking process
 	- AudioToolbox
@@ -28,26 +25,17 @@ Integration Instructions
 	- EventKit
 	- EventKitUI
 	- libxml2.dylib
-
+	- AVFoundation
 
 - add the framework as a bundle resource
 
-![Adding the framework as a bundle resource](docs/images/tutorial/3-bundle-resources.png)
+![Adding the framework as a bundle resource](../images/tutorial/3-bundle-resources.png =879x500)
 
 - configure at least one of your LiquidM app tokens under the key "default" in a dictionary called "LiquidMAppIDs"
 - configure as many additional app IDs under this dictionary
-
-Backfill Integration Instructions
-=================================
-
-- add the GoogleAdMobAdsSdkiOS-6.5.1 folder to the project.
 - add `-ObjC` to the linker flags
 
-![Adding necessary linker flags](docs/images/tutorial/2-add-linker-flags.png)
-
-- configure at least one of your AdMob ad unit id under the key "default" in a separate dictionary called "AdMobBackfillingIDs"
-- configure as many additional app IDs under this dictionary
-- Import `<LiquidM-iOS-SDK/LiquidMAdMobAdapter.h>`
+![Adding necessary linker flags](../images/tutorial/2-add-linker-flags.png =878x426)
 
 
 Integration Examples
@@ -61,8 +49,8 @@ Banner
 		[super viewDidLoad];
 
 		NSDictionary *options = @{
-        	LiquidMAdViewControllerOptionTokenTag: @"TAG_OF_TOKEN",
-        	LiquidMAdViewControllerOptionReload: [NSNumber numberWithBool:NO]
+        	LiquidMControllerOptionTokenTag: @"TAG_OF_TOKEN",
+        	LiquidMControllerOptionReload: [NSNumber numberWithBool:NO]
     	};
 
 
@@ -74,7 +62,7 @@ Banner
 		[self.view bringSubviewToFront:lmAd.view];
 	}
 
-Aditional parameters like tokenTag or  manual reload of ads should be declared inside a NSDictionary.
+Aditional parameters like tokenTag or reload should be declared inside a NSDictionary.
 
 To present the banners and interstitials in the ViewController, you should call `presentAd`
 
@@ -91,8 +79,8 @@ Interstitial
 		[super viewDidLoad];
 
 		NSDictionary *options = @{
-        	LiquidMAdViewControllerOptionTokenTag: @"TAG_OF_TOKEN",
-        	LiquidMAdViewControllerOptionReload: [NSNumber numberWithBool:NO]
+        	LiquidMControllerOptionTokenTag: @"TAG_OF_TOKEN",
+        	LiquidMControllerOptionReload: [NSNumber numberWithBool:NO]
     	};
 
 
@@ -113,7 +101,7 @@ You can position the ad banner on your available view just by setting its frame.
 		[super viewDidLoad];
 
 		NSDictionary *options = @{
-        	LiquidMAdViewControllerOptionReload: [NSNumber numberWithBool:YES]
+        	LiquidMControllerOptionReload: [NSNumber numberWithBool:YES]
     	};
 
 		lmAd = [[LiquidMAdViewController alloc] initWithRootViewController:self
@@ -146,55 +134,3 @@ You can obtain banners by making a request with their specific dimensions.
 		[self.view bringSubviewToFront:lmAd.view];
 	}
 
-
-Backfill Integration Examples
-=============================
-
-Banner
-------
-
-	- (void)viewDidLoad
-	{
-    	[super viewDidLoad];
-
-        	NSDictionary *options = @{
-            	LiquidMAdViewControllerOptionReload: [NSNumber numberWithBool:NO]
-        	};
-        
-        	adMobAdapter = [[LiquidMAdMobAdapter alloc] init];
-        	adMobAdapter.delegate = self;
-        	adMobAdapter.tokenTag = @"default";
-        	lmAd = [LiquidMAdViewController controllerWithRootViewController:self
-                                                                 	 adClass:LiquidMAdClassMMA
-                                                                	 options:options
-                                                      	  backfillingAdapter:adMobAdapter];
-        	lmAd.delegate = self;
-	}
-
-To present the banners and interstitials in the ViewController, you should call `presentAd`
-
-	- (void)adapterDidReceiveAd:(id<LiquidMBackfillingAdapter>)adapter
-	{
-    	[lmAd presentAd];
-	}
-
-Interstitial
-------------
-
-	- (void)viewDidLoad
-	{
-    	[super viewDidLoad];
-
-        	NSDictionary *options = @{
-            	LiquidMAdViewControllerOptionReload: [NSNumber numberWithBool:NO]
-        	};
-        
-        	adMobAdapter = [[LiquidMAdMobAdapter alloc] init];
-        	adMobAdapter.delegate = self;
-        	adMobAdapter.tokenTag = @"interstitial";
-        	lmAd = [LiquidMAdViewController controllerWithRootViewController:self
-                                                                 	 adClass:LiquidMAdClassRichMedia
-                                                                  	 options:options
-                                                      	  backfillingAdapter:adMobAdapter];
-        	lmAd.delegate = self;
-	}

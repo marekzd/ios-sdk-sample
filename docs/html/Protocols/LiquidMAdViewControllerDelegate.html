@@ -43,13 +43,9 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/controller:didFailedToReceiveAdWithError:">&nbsp;&nbsp;&nbsp;&nbsp;- controller:didFailedToReceiveAdWithError:</option>
-	
 	<option value="//api/name/controllerDidDismissAd:">&nbsp;&nbsp;&nbsp;&nbsp;- controllerDidDismissAd:</option>
 	
 	<option value="//api/name/controllerDidPresentAd:">&nbsp;&nbsp;&nbsp;&nbsp;- controllerDidPresentAd:</option>
-	
-	<option value="//api/name/controllerDidReceiveAd:">&nbsp;&nbsp;&nbsp;&nbsp;- controllerDidReceiveAd:</option>
 	
 	<option value="//api/name/controllerWillDismissAd:">&nbsp;&nbsp;&nbsp;&nbsp;- controllerWillDismissAd:</option>
 	
@@ -83,13 +79,9 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/controller:didFailedToReceiveAdWithError:">controller:didFailedToReceiveAdWithError:</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/controllerDidDismissAd:">controllerDidDismissAd:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/controllerDidPresentAd:">controllerDidPresentAd:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/controllerDidReceiveAd:">controllerDidReceiveAd:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/controllerWillDismissAd:">controllerWillDismissAd:</a></span></li>
 	
@@ -119,7 +111,7 @@
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<td class="specification-title">Conforms to</td>
-	<td class="specification-value">NSObject</td>
+	<td class="specification-value"><a href="../Protocols/LiquidMAbstractControllerDelegate.html">LiquidMAbstractControllerDelegate</a></td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
 	<td class="specification-value">LiquidMAdViewController.h</td>
@@ -150,18 +142,6 @@
 
 						<ul class="task-list">
 							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/controllerDidReceiveAd:">&ndash;&nbsp;controllerDidReceiveAd:</a></code>
-	</span>
-	
-	<span class="task-item-suffix">required method</span>
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/controller:didFailedToReceiveAdWithError:">&ndash;&nbsp;controller:didFailedToReceiveAdWithError:</a></code>
-	</span>
-	
-	<span class="task-item-suffix">required method</span>
-</li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/controllerWillPresentAd:">&ndash;&nbsp;controllerWillPresentAd:</a></code>
 	</span>
@@ -201,57 +181,6 @@
 					<div class="section section-methods">
 						<a title="Instance Methods" name="instance_methods"></a>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
-						
-						<div class="section-method">
-	<a name="//api/name/controller:didFailedToReceiveAdWithError:" title="controller:didFailedToReceiveAdWithError:"></a>
-	<h3 class="subsubtitle method-title">controller:didFailedToReceiveAdWithError:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Method called when the loading of the ad failed.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (void)controller:(LiquidMAdViewController *)<em>controller</em> didFailedToReceiveAdWithError:(NSError *)<em>error</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>controller</em></dt>
-			<dd><p>The <a href="../Classes/LiquidMAdViewController.html">LiquidMAdViewController</a> that failed to receive the ad</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>error</em></dt>
-			<dd><p>The error that occured when loading an ad</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">LiquidMAdViewController.h</code><br />
-	</div>				
-	
-	
-</div>
 						
 						<div class="section-method">
 	<a name="//api/name/controllerDidDismissAd:" title="controllerDidDismissAd:"></a>
@@ -321,52 +250,6 @@
 		<dl class="argument-def parameter-def">
 			<dt><em>controller</em></dt>
 			<dd><p>The <a href="../Classes/LiquidMAdViewController.html">LiquidMAdViewController</a> that did present the ad</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">LiquidMAdViewController.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/controllerDidReceiveAd:" title="controllerDidReceiveAd:"></a>
-	<h3 class="subsubtitle method-title">controllerDidReceiveAd:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Method called when the loading of the ad is finished.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (void)controllerDidReceiveAd:(LiquidMAdViewController *)<em>controller</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>controller</em></dt>
-			<dd><p>The <a href="../Classes/LiquidMAdViewController.html">LiquidMAdViewController</a> that received the ad</p></dd>
 		</dl>
 		
 	</div>
@@ -498,7 +381,7 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 LiquidM. All rights reserved. (Last updated: 2013-12-16)</span><br />
+						<p><span class="copyright">&copy; 2014 LiquidM. All rights reserved. (Last updated: 2014-01-14)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
 						

@@ -80,25 +80,11 @@ integrate the SDK in your app.</p>
 <ul>
 <li>configure at least one of your LiquidM app tokens under the key &ldquo;default&rdquo; in a dictionary called &ldquo;LiquidMAppIDs&rdquo;</li>
 <li>configure as many additional app IDs under this dictionary</li>
-</ul>
-
-
-<h1>Backfill Integration Instructions</h1>
-
-<ul>
-<li>Add the GoogleAdMobAdsSdkiOS-6.5.1 folder to the project.</li>
 <li>add <code>-ObjC</code> to the linker flags</li>
 </ul>
 
 
 <p><img src="../images/tutorial/2-add-linker-flags.png" height="426" width="878" alt="Adding necessary linker flags" /></p>
-
-<ul>
-<li>configure at least one of your AdMob ad unit id under the key &ldquo;default&rdquo; in a separate dictionary called &ldquo;AdMobBackfillingIDs&rdquo;</li>
-<li>configure as many additional app IDs under this dictionary</li>
-<li>Import &lt;LiquidM-iOS-SDK/LiquidMAdMobAdapter.h></li>
-</ul>
-
 
 <h1>Integration Examples</h1>
 
@@ -109,8 +95,8 @@ integrate the SDK in your app.</p>
     [super viewDidLoad];
 
     NSDictionary *options = @{
-        LiquidMAdViewControllerOptionTokenTag: @"TAG_OF_TOKEN",
-        LiquidMAdViewControllerOptionReload: [NSNumber numberWithBool:NO]
+        LiquidMControllerOptionTokenTag: @"TAG_OF_TOKEN",
+        LiquidMControllerOptionReload: [NSNumber numberWithBool:NO]
     };
 
 
@@ -140,8 +126,8 @@ integrate the SDK in your app.</p>
     [super viewDidLoad];
 
     NSDictionary *options = @{
-        LiquidMAdViewControllerOptionTokenTag: @"TAG_OF_TOKEN",
-        LiquidMAdViewControllerOptionReload: [NSNumber numberWithBool:NO]
+        LiquidMControllerOptionTokenTag: @"TAG_OF_TOKEN",
+        LiquidMControllerOptionReload: [NSNumber numberWithBool:NO]
     };
 
 
@@ -161,7 +147,7 @@ integrate the SDK in your app.</p>
     [super viewDidLoad];
 
     NSDictionary *options = @{
-        LiquidMAdViewControllerOptionReload: [NSNumber numberWithBool:YES]
+        LiquidMControllerOptionReload: [NSNumber numberWithBool:YES]
     };
 
     lmAd = [[LiquidMAdViewController alloc] initWithRootViewController:self
@@ -193,58 +179,6 @@ integrate the SDK in your app.</p>
     [self.view bringSubviewToFront:lmAd.view];
 }
 </code></pre>
-
-<h1>Backfill Integration Examples</h1>
-
-<h2>Banner</h2>
-
-<pre><code>- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-        NSDictionary *options = @{
-            LiquidMAdViewControllerOptionReload: [NSNumber numberWithBool:NO]
-        };
-
-        adMobAdapter = [[LiquidMAdMobAdapter alloc] init];
-        adMobAdapter.delegate = self;
-        adMobAdapter.tokenTag = @"default";
-        lmAd = [LiquidMAdViewController controllerWithRootViewController:self
-                                                                 adClass:LiquidMAdClassMMA
-                                                                 options:options
-                                                      backfillingAdapter:adMobAdapter];
-        lmAd.delegate = self;
-}
-</code></pre>
-
-<p>To present the banners and interstitials in the ViewController, you should call <code>presentAd</code></p>
-
-<pre><code>- (void)adapterDidReceiveAd:(id&lt;LiquidMBackfillingAdapter&gt;)adapter
-{
-    [lmAd presentAd];
-}
-</code></pre>
-
-<h2>Interstitial</h2>
-
-<pre><code>- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-        NSDictionary *options = @{
-            LiquidMAdViewControllerOptionReload: [NSNumber numberWithBool:NO]
-        };
-
-        adMobAdapter = [[LiquidMAdMobAdapter alloc] init];
-        adMobAdapter.delegate = self;
-        adMobAdapter.tokenTag = @"interstitial";
-        lmAd = [LiquidMAdViewController controllerWithRootViewController:self
-                                                                 adClass:LiquidMAdClassRichMedia
-                                                                 options:options
-                                                      backfillingAdapter:adMobAdapter];
-        lmAd.delegate = self;
-}
-</code></pre>
 						
 						
 					</div>
@@ -257,9 +191,11 @@ integrate the SDK in your app.</p>
 						<h2 class="index-title">Class References</h2>
 						<ul>
 							
-							<li><a href="Classes/LiquidMAdMobAdapter.html">LiquidMAdMobAdapter</a></li>
+							<li><a href="Classes/LiquidMAbstractController.html">LiquidMAbstractController</a></li>
 							
 							<li><a href="Classes/LiquidMAdViewController.html">LiquidMAdViewController</a></li>
+							
+							<li><a href="Classes/LiquidMVideoViewController.html">LiquidMVideoViewController</a></li>
 							
 						</ul>
 					</div>
@@ -271,11 +207,11 @@ integrate the SDK in your app.</p>
 						<h2 class="index-title">Protocol References</h2>
 						<ul>
 							
+							<li><a href="Protocols/LiquidMAbstractControllerDelegate.html">LiquidMAbstractControllerDelegate</a></li>
+							
 							<li><a href="Protocols/LiquidMAdViewControllerDelegate.html">LiquidMAdViewControllerDelegate</a></li>
 							
-							<li><a href="Protocols/LiquidMBackfillingAdapter.html">LiquidMBackfillingAdapter</a></li>
-							
-							<li><a href="Protocols/LiquidMBackfillingAdapterDelegate.html">LiquidMBackfillingAdapterDelegate</a></li>
+							<li><a href="Protocols/LiquidMVideoViewControllerDelegate.html">LiquidMVideoViewControllerDelegate</a></li>
 							
 						</ul>
 						
@@ -290,7 +226,7 @@ integrate the SDK in your app.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 LiquidM. All rights reserved. (Last updated: 2013-12-16)</span><br />
+						<p><span class="copyright">&copy; 2014 LiquidM. All rights reserved. (Last updated: 2014-01-14)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
 						

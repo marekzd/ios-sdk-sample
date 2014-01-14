@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <EventKitUI/EventKitUI.h>
-#import "LiquidMBackfillingAdapter.h"
-#import "LiquidMUtilities.h"
+#import "LiquidMAnimationClasses.h"
+#import "LiquidMAdClasses.h"
+#import "LiquidMAbstractController.h"
+#import "LiquidMControllerOptions.h"
 
 @class LiquidMAdViewController;
 
@@ -18,30 +20,7 @@
  [LiquidMAdViewController delegate] property.
  */
 
-@protocol LiquidMAdViewControllerDelegate <NSObject>
-
-/*!
- @name Loading
- */
-
-@required
-
-/*!
- @abstract Method called when the loading of the ad is finished.
- 
- @param controller The LiquidMAdViewController that received the ad
- */
-- (void)controllerDidReceiveAd:(LiquidMAdViewController *)controller;
-
-/*!
- @abstract Method called when the loading of the ad failed.
-
- @param controller The LiquidMAdViewController that failed to receive the ad
-
- @param error The error that occured when loading an ad
- */
-- (void)controller:(LiquidMAdViewController *)controller
-        didFailedToReceiveAdWithError:(NSError*)error;
+@protocol LiquidMAdViewControllerDelegate <LiquidMAbstractControllerDelegate>
 
 /*!
  @name Presentation
@@ -80,20 +59,20 @@
 @end
 
 /*!
- @discussion This class provides an easy approach for integrating LiquidM ads into an
- iOS application. It's interface is intentionally kept simple to facilitate the
- integration.
+ @discussion This class provides an easy approach for integrating LiquidM banner
+ ads into an iOS application. It's interface is intentionally kept simple to
+ facilitate the integration.
 
- For a basic integration all it needs is just a UIViewController and a
- LiquidMAdClass to run. For further integration instructions please consult
- the integration tutorial.
+ For a basic integration all it needs is just an UIViewController and a
+ LiquidMAdClass / ad size to run. For further integration instructions please
+ consult the integration tutorial.
 
  **Additional Information**
-
+ 
  *Ad classes and sizes*: The following table lists all available ad sizes with
  its corresponding sizes. Also the sizes listed correspond to supported standard
  sizes.
-
+ 
  | AdClass                                | Size       |
  | -------------------------------------- | ---------- |
  | LiquidMAdClassMMA                      | 320 x 53   |
@@ -108,29 +87,21 @@
  | LiquidMAdClassIphonePreloaderLandscape | 480 x 300  |
  | LiquidMAdClassIpadPreloaderPortrait    | 768 x 1004 |
  
- *Ad classes for video*:
- 
- | AdClass                     | Description                                       |
- | --------------------------- | ------------------------------------------------- |
- | LiquidMAdClassVideoPreRoll  | Video will be played before the content           |
- | LiquidMAdClassVideoMidRoll  | Video will be played in the middle of the content |
- | LiquidMAdClassVideoPostRoll | Video will be played after the content            |
-
  *Options*: The following key-value pairs can be part of a dictionary that can
  be passed to some of the factory methods for creating a LiquidMAdViewController
 
- | Key                                     | Value                                                                               |
- | --------------------------------------- | ----------------------------------------------------------------------------------- |
- | `LiquidMAdViewControllerOptionToken`    | actual token to be used for ad loading                                              |
- | `LiquidMAdViewControllerOptionTokenTag` | name (NSString) of the tag for looking up the initial token (default: `@"default"`) |
- | `LiquidMAdViewControllerOptionReload`   | determines if automatic reloading should be used (BOOL).                            |
- | `LiquidMAdViewControllerOptionLocation` | the user's location to be used for geo-targeting                                    |
+ | Key                             | Value                                                                               |
+ | ------------------------------- | ----------------------------------------------------------------------------------- |
+ | LiquidMControllerOptionLocation | the user's location to be used for geo-targeting                                    |
+ | LiquidMControllerOptionReload   | determines if automatic reloading should be used (BOOL).                            |
+ | LiquidMControllerOptionToken    | actual token to be used for ad loading                                              |
+ | LiquidMControllerOptionTokenTag | name (NSString) of the tag for looking up the initial token (default: `@"default"`) |
 
  **Note** that you will have to wrap the BOOL into a `NSNumber` for putting it
  into a `NSDictionary` (default is `YES`)
  */
 
-@interface LiquidMAdViewController : UIViewController
+@interface LiquidMAdViewController : LiquidMAbstractController
 {
 
 }
@@ -168,12 +139,6 @@
 + (LiquidMAdViewController *)controllerWithRootViewController:(UIViewController *)rvc
                                                       adClass:(LiquidMAdClass)adClass;
 
-
-#define LiquidMAdViewControllerOptionReload @"reload"
-#define LiquidMAdViewControllerOptionToken @"token"
-#define LiquidMAdViewControllerOptionTokenTag @"tokenTag"
-#define LiquidMAdViewControllerOptionLocation @"location"
-
 /*!
  @abstract Creates a LiquidMAdViewController with all necessary information.
 
@@ -195,60 +160,7 @@
  */
 + (LiquidMAdViewController *)controllerWithRootViewController:(UIViewController *)rvc
                                                       adClass:(LiquidMAdClass)adClass
-                                                     options:(NSDictionary *)optionsDict;
-
-/*!
- @abstract Creates a LiquidMAdViewController with all necessary information.
-
- @param rvc the UIViewController that is used to present the ad and all its
- additional features.
-
- @param adClass A legacy ad class that determines the size of the placement. Ad
- classes match the sizes in density independent pixels (points) listed in the
- overview section.
-
- @param adapter An LiquidMBackfillingAdapter object that can be queried in case
- that no ad can be delivered.
-
- @warning This factory methods is deprecated. Usage of it is discouraged in
- favor of `controllerWithRootViewController:adSize:backfillingAdapter:`
-
- @return Fully initialized instance of a LiquidMAdViewController
-
- @see LiquidMAdMobAdapter
- */
-+ (LiquidMAdViewController *)controllerWithRootViewController:(UIViewController *)rvc
-                                                      adClass:(LiquidMAdClass)adClass
-                                           backfillingAdapter:(id<LiquidMBackfillingAdapter>)adapter;
-
-/*!
- @abstract Creates a LiquidMAdViewController with all necessary information.
-
- @param rvc the UIViewController that is used to present the ad and all its
- additional features.
-
- @param adClass A legacy ad class that determines the size of the placement. Ad
- classes match the sizes in density independent pixels (points) listed in the
- overview section.
-
- @param optionsDict A dictionary that contains optional parameters.  It can
- optionally contain the one or more of the key-value pairs listed in the
- overview section.
-
- @param adapter An LiquidMBackfillingAdapter object that can be queried in case
- that no ad can be delivered.
-
- @warning This factory methods is deprecated. Usage of it is discouraged in
- favor of `controllerWithRootViewController:adSize:options:backfillingAdapter:`
-
- @return Fully initialized instance of a LiquidMAdViewController
- 
- @see LiquidMAdMobAdapter
- */
-+ (LiquidMAdViewController *)controllerWithRootViewController:(UIViewController *)rvc
-                                                      adClass:(LiquidMAdClass)adClass
-                                                      options:(NSDictionary *)optionsDict
-                                           backfillingAdapter:(id<LiquidMBackfillingAdapter>)adapter;
+                                                      options:(NSDictionary *)optionsDict;
 
 /*!
  @name Serve by Dimension
@@ -288,51 +200,6 @@
                                                       options:(NSDictionary *)optionsDict;
 
 /*!
- @abstract Initializes a LiquidMAdViewController with all needed information.
-
- @param rvc the UIViewController that is used to present the ad and all its
- additional features.
-
- @param adSize The size of the ad to load. The standard sizes can be found in
- the size column of the ad class table in the overview section.
-
- @param adapter An LiquidMBackfillingAdapter object that can be queried in case
- that no ad can be delivered.
-
- @return Fully initialized instance of a LiquidMAdViewController
-
- @see LiquidMAdMobAdapter
- */
-+ (LiquidMAdViewController *)controllerWithRootViewController:(UIViewController *)rvc
-                                                       adSize:(CGSize)adSize
-                                           backfillingAdapter:(id<LiquidMBackfillingAdapter>)adapter;
-
-/*!
- @abstract Initializes a LiquidMAdViewController with all needed information.
-
- @param rvc the UIViewController that is used to present the ad and all its
- additional features.
-
- @param adSize The size of the ad to load. The standard sizes can be found in
- the size column of the ad class table in the overview section.
-
- @param optionsDict A dictionary that contains optional parameters.  It can
- optionally contain the one or more of the key-value pairs listed in the
- overview section.
-
- @param adapter An LiquidMBackfillingAdapter object that can be queried in case
- that no ad can be delivered.
-
- @return Fully initialized instance of a LiquidMAdViewController
-
- @see LiquidMAdMobAdapter
- */
-+ (LiquidMAdViewController *)controllerWithRootViewController:(UIViewController *)rvc
-                                                       adSize:(CGSize)adSize
-                                                     options:(NSDictionary *)optionsDict
-                                           backfillingAdapter:(id<LiquidMBackfillingAdapter>)adapter;
-
-/*!
  @name Controlling Presentation and Animations
  */
 
@@ -344,7 +211,7 @@
  as well. For banner ads though it is still required to add the controller's
  view to the view hierarchy that is on screen.
 
- @see [LiquidMAdViewControllerDelegate controllerDidReceiveAd:]
+ @see [LiquidMAbstractControllerDelegate controllerDidReceiveAd:]
  */
 - (void)presentAd;
 
@@ -356,14 +223,15 @@
 /*!
  @abstract The type of animation used for the transition between two ads.
  
- @discussion It must has to be of the following predefined animations
-
+ @discussion It must has to be of the following predefined animations.
+ 
  | Animation Name                   | Description                                                     |
  | -------------------------------- | --------------------------------------------------------------- |
  | LiquidMAnimationClassCurlDown    | next ad curls down on the old one like a turning page (default) |
  | LiquidMAnimationClassLeftToRight | new ad pushed old one out from the left                         |
  | LiquidMAnimationClassTopToBottom | new ad pushed old one out from the top                          |
  | LiquidMAnimationClassFade        | new ad fades in while the old ad fades out                      |
+ | LiquidMAnimationClassNone        | no animation will be performed                                  |
  */
 @property (nonatomic) LiquidMAnimationClass animationType;
 
@@ -378,63 +246,9 @@
  are widely used by ad designers which can be found in the size column of the
  ad class table in the overview section.
  
- @see currentAdClass
+ @see [LiquidMAbstractController currentAdClass]
  */
 @property (nonatomic) CGSize adSize;
-
-
-/*!
- @abstract Ad class used for the ads to load and display an ad.
- 
- @discussion It can have one of the values listed in the ad class table in the
- overview section. Setting this property implies the related ad size.
- 
- @warning This property is deprecated. Instead it is adviced to use adSize.
- 
- @see adSize
- */
-@property (nonatomic) LiquidMAdClass currentAdClass;
-
-/*!
- @abstract The tag that is being used to search for an app token from the in the
- app's plist file preconfigured dictionary.
-
- @discussion App tokens can be added to the plist file in a dictionary called
- `LiquidMAppIDs` with its tag as a key and the token itself as a value. If you
- choose to use it you should at least add the "default" tag's token.
- You can leave the plist file unconfigured but you would have to provide an
- actual token at runtime.
- You should choose to either use tokenTag or token for choosing a token for ad
- loading.
-
- @see token
- */
-@property (nonatomic, copy) NSString *tokenTag;
-
-/*!
- @abstract The actual token that is used to load an ad.
- 
- @discussion If you leave this property untouched the SDK will try to load a
- token dictionary from the app's plist file. On the other hand if you set it the
- token you provided will be used directly for ad loading.
- You should choose to either use tokenTag or token for choosing a token for ad
- loading.
- 
- @see tokenTag
- */
-@property (nonatomic, copy) NSString *token;
-
-/*!
- @abstract The location that is used for location based ads.
- 
- @discussion If the location gets not set it will not be used for the ad
- request.
- It can be set on creation of the controller via the
- `LiquidMAdViewControllerOptionLocation` option.
- 
- @see controllerWithRootViewController:adSize:options:
- */
-@property (nonatomic, copy) CLLocation *location;
 
 /*!
  @abstract Manually reloads the ads.
