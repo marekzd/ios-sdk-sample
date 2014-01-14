@@ -35,7 +35,7 @@ Integration Instructions
 - configure as many additional app IDs under this dictionary
 - add `-ObjC` to the linker flags
 
-![Adding necessary linker flags](../images/tutorial/2-add-linker-flags.png)
+![Adding necessary linker flags](docs/images/tutorial/2-add-linker-flags.png)
 
 
 Integration Examples
