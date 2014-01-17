@@ -134,3 +134,34 @@ You can obtain banners by making a request with their specific dimensions.
 		[self.view bringSubviewToFront:lmAd.view];
 	}
 
+
+Video Ads
+---------
+
+You can request video ads via `LiquidMVideoViewController` like in the following
+example:
+
+    - (void)viewDidLoad
+    {
+        [super viewDidLoad];
+        NSMutableDictionary *options = [NSMutableDictionary dictionary];
+        [options setObject:@"<YOUR_TOKEN>"
+                    forKey:LiquidMControllerOptionToken];
+        [options setObject:[NSNumber numberWithBool:YES]
+                    forKey:LiquidMControllerOptionFullscreen];
+        
+        videoController = [LiquidMVideoViewController controllerWithAdClass:LiquidMAdClassVideoPreRoll
+                                                                   videoURL:@"<YOUR_VIDEO_CONTENT_URL>"
+                                                                    options:options];
+        videoController.delegate = self;
+        videoController.view.frame = CGRectMake(0,
+                                                64,
+                                                [[UIScreen mainScreen] bounds].size.width,
+                                                180);
+        [self.view addSubview:videoController.view];
+    }
+
+    - (void)controllerDidReceiveAd:(LiquidMAdViewController *)controller
+    {
+        [videoController play];
+    }

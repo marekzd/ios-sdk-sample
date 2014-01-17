@@ -1,4 +1,17 @@
-1.1.2 (2013-01-14)
+1.2.0 (2014-01-17)
+==================
+
+Bug Fixes
+---------
+
+- improved token handling
+
+Features
+--------
+
+- added video player featuring ad support
+
+1.1.2 (2014-01-14)
 ==================
 
 Bug Fixes

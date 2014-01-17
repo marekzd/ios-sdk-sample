@@ -62,7 +62,6 @@
  */
 @property (nonatomic, weak) id<LiquidMVideoViewControllerDelegate> delegate;
 
-
 /*!
  @abstract Creates a LiquidMVideoViewController with all necessary information.
  
@@ -97,8 +96,19 @@
                                              videoURL:(NSString*)videoURL
                                               options:(NSDictionary*)optionsDict;
 
+/*!
+ @abstract Starts the playback of the video possibly with an ad beforehand.
+ */
 - (void)play;
+
+/*!
+ @abstract Pauses the current playing video.
+ */
 - (void)pause;
+
+/*!
+ @abstract Stops the current video playing.
+ */
 - (void)stop;
 
 @end
