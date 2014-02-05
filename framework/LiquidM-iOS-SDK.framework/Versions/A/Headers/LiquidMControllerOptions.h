@@ -13,11 +13,13 @@
 #define LiquidMControllerOptionLocation @"location"
 #define LiquidMControllerOptionToken @"token"
 #define LiquidMControllerOptionTokenTag @"tokenTag"
+#define LiquidMControllerOptionKeywords @"keywords"
 
 // options for banners
 #define LiquidMControllerOptionReload @"reload"
 
 // options for video
 #define LiquidMControllerOptionFullscreen @"fullscreen"
+
 
 #endif

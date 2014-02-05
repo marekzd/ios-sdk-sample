@@ -23,11 +23,11 @@
     [super viewDidLoad];
 
     NSDictionary *options = @{
-        LiquidMAdViewControllerOptionTokenTag: @"interstitial"
+        LiquidMControllerOptionTokenTag: @"interstitial"
     };
 
     lmAd = [LiquidMAdViewController controllerWithRootViewController:self
-                                                              adSize:[LiquidMUtilities getScreenResolution]
+                                                              adClass:LiquidMAdClassRichMedia
                                                              options:options];
     lmAd.delegate = self;
     [lmAd reloadAd];
@@ -40,7 +40,7 @@
     [controller presentAd];
 }
 
-- (void)controller:(LiquidMAdViewController *)controller didFailedToReceiveAdWithError:(NSError *)error
+- (void)controller:(LiquidMAdViewController *)controller didFailToReceiveAdWithError:(NSError *)error
 {
     NSLog(@"Failed to receive an ad.\nError: %@", error);
     [controller reloadAd];

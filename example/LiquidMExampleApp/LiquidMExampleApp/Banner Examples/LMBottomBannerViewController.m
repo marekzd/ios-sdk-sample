@@ -42,7 +42,7 @@
     [controller presentAd];
 }
 
-- (void)controller:(LiquidMAdViewController *)controller didFailedToReceiveAdWithError:(NSError *)error
+- (void)controller:(LiquidMAdViewController *)controller didFailToReceiveAdWithError:(NSError *)error
 {
     NSLog(@"Failed to receive an ad.\nError: %@", error);
 }

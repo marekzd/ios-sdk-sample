@@ -27,9 +27,9 @@ Integration Instructions
 	- libxml2.dylib
 	- AVFoundation
 
-- add the framework as a bundle resource
+- add the bundle inside the framework. This can be found on LiquidM-iOS-SDK.framework/Versions/A/Resources 
 
-![Adding the framework as a bundle resource](docs/images/tutorial/3-bundle-resources.png)
+![Adding the bundle inside the framework as a bundle resource](docs/images/tutorial/3-bundle-resources.png)
 
 - configure at least one of your LiquidM app tokens under the key "default" in a dictionary called "LiquidMAppIDs"
 - configure as many additional app IDs under this dictionary

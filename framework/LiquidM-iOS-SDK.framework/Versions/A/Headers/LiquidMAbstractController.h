@@ -97,4 +97,47 @@
  */
 @property (nonatomic, copy) CLLocation *location;
 
+/*!
+ @name Keyword Management
+ */
+
+/*!
+ @abstract Returns all currently set keywords used for ad loading.
+ */
+@property (nonatomic, readonly) NSArray *keywords;
+
+/*!
+ @abstract Adds a keyword to the list of keywords.
+ 
+ @param keyword The keyword to add
+ */
+- (void)addKeyword:(NSString *)keyword;
+
+/*!
+ @abstract Adds all keywords of an array to the list of keywords.
+ 
+ @param keywords An array of keywords to add
+ */
+- (void)addKeywords:(NSArray *)keywords;
+
+/*!
+ @abstract Removes a keyword from the list of keywords.
+ 
+ @param keyword The keyword to remove
+ */
+- (void)removeKeyword:(NSString *)keyword;
+
+/*!
+ @abstract Removes all keywords of an array from the list of keywords.
+ 
+ @param keywords An array of keywords to remove
+ */
+- (void)removeKeywords:(NSArray *)keywords;
+
+/*!
+ @abstract Empties the list of keywords.
+ */
+- (void)removeAllKeywords;
+
+
 @end

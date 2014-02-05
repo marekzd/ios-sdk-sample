@@ -23,10 +23,10 @@
     [super viewDidLoad];
     
     NSMutableDictionary *options = [NSMutableDictionary dictionary];
-    [options setObject:@"TestTokn"
-                forKey:LiquidMAdViewControllerOptionToken];
+    [options setObject:@"A347JIzt"
+                forKey:LiquidMControllerOptionToken];
     [options setObject:[NSNumber numberWithBool:NO]
-                forKey:LiquidMAdViewControllerOptionReload];
+                forKey:LiquidMControllerOptionReload];
     
 
     lmAd = [LiquidMAdViewController controllerWithRootViewController:self
@@ -48,7 +48,7 @@
     [controller presentAd];
 }
 
-- (void)controller:(LiquidMAdViewController *)controller didFailedToReceiveAdWithError:(NSError *)error
+- (void)controller:(LiquidMAdViewController *)controller didFailToReceiveAdWithError:(NSError *)error
 {
     NSLog(@"Failed to receive an ad.\nError: %@", error);
 }
