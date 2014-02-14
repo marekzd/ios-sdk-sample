@@ -21,5 +21,4 @@
 // options for video
 #define LiquidMControllerOptionFullscreen @"fullscreen"
 
-
 #endif

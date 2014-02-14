@@ -41,6 +41,8 @@
 	
 	<option value="//api/name/currentAdClass">&nbsp;&nbsp;&nbsp;&nbsp;currentAdClass</option>
 	
+	<option value="//api/name/keywords">&nbsp;&nbsp;&nbsp;&nbsp;keywords</option>
+	
 	<option value="//api/name/location">&nbsp;&nbsp;&nbsp;&nbsp;location</option>
 	
 	<option value="//api/name/token">&nbsp;&nbsp;&nbsp;&nbsp;token</option>
@@ -50,6 +52,19 @@
 	
 	
 	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/addKeyword:">&nbsp;&nbsp;&nbsp;&nbsp;- addKeyword:</option>
+	
+	<option value="//api/name/addKeywords:">&nbsp;&nbsp;&nbsp;&nbsp;- addKeywords:</option>
+	
+	<option value="//api/name/removeAllKeywords">&nbsp;&nbsp;&nbsp;&nbsp;- removeAllKeywords</option>
+	
+	<option value="//api/name/removeKeyword:">&nbsp;&nbsp;&nbsp;&nbsp;- removeKeyword:</option>
+	
+	<option value="//api/name/removeKeywords:">&nbsp;&nbsp;&nbsp;&nbsp;- removeKeywords:</option>
 	
 	
 	
@@ -67,6 +82,8 @@
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Keyword Management">Keyword Management</a></span></li>
+	
 </ul></li>
 
 
@@ -76,6 +93,8 @@
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentAdClass">currentAdClass</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/keywords">keywords</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/location">location</a></span></li>
 	
@@ -88,6 +107,20 @@
 
 
 
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addKeyword:">addKeyword:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addKeywords:">addKeywords:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeAllKeywords">removeAllKeywords</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeKeyword:">removeKeyword:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeKeywords:">removeKeywords:</a></span></li>
+	
+</ul></li>
 
 
 			</ul>
@@ -137,7 +170,7 @@
 						
 						
 						
-						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
 
 						<ul class="task-list">
 							<li>
@@ -163,6 +196,50 @@
 		<code><a href="#//api/name/location">&nbsp;&nbsp;location</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Keyword Management" name="task_Keyword Management"></a>
+						<h3 class="subsubtitle task-title">Keyword Management</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/keywords">&nbsp;&nbsp;keywords</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addKeyword:">&ndash;&nbsp;addKeyword:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addKeywords:">&ndash;&nbsp;addKeywords:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeKeyword:">&ndash;&nbsp;removeKeyword:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeKeywords:">&ndash;&nbsp;removeKeywords:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeAllKeywords">&ndash;&nbsp;removeAllKeywords</a></code>
+	</span>
+	
 	
 </li>
 						</ul>
@@ -218,6 +295,42 @@ overview section. Setting this property implies the related ad size.</p><div cla
 			
 		</ul>
 	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LiquidMAbstractController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/keywords" title="keywords"></a>
+	<h3 class="subsubtitle method-title">keywords</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns all currently set keywords used for ad loading.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSArray *keywords</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -386,6 +499,232 @@ load an ad.</p>
 					
 					
 					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/addKeyword:" title="addKeyword:"></a>
+	<h3 class="subsubtitle method-title">addKeyword:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Adds a keyword to the list of <a href="#//api/name/keywords">keywords</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)addKeyword:(NSString *)<em>keyword</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>keyword</em></dt>
+			<dd><p>The keyword to add</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LiquidMAbstractController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/addKeywords:" title="addKeywords:"></a>
+	<h3 class="subsubtitle method-title">addKeywords:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Adds all <a href="#//api/name/keywords">keywords</a> of an array to the list of <a href="#//api/name/keywords">keywords</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)addKeywords:(NSArray *)<em>keywords</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>keywords</em></dt>
+			<dd><p>An array of <a href="#//api/name/keywords">keywords</a> to add</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LiquidMAbstractController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeAllKeywords" title="removeAllKeywords"></a>
+	<h3 class="subsubtitle method-title">removeAllKeywords</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Empties the list of <a href="#//api/name/keywords">keywords</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeAllKeywords</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LiquidMAbstractController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeKeyword:" title="removeKeyword:"></a>
+	<h3 class="subsubtitle method-title">removeKeyword:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Removes a keyword from the list of <a href="#//api/name/keywords">keywords</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeKeyword:(NSString *)<em>keyword</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>keyword</em></dt>
+			<dd><p>The keyword to remove</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LiquidMAbstractController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeKeywords:" title="removeKeywords:"></a>
+	<h3 class="subsubtitle method-title">removeKeywords:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Removes all <a href="#//api/name/keywords">keywords</a> of an array from the list of <a href="#//api/name/keywords">keywords</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeKeywords:(NSArray *)<em>keywords</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>keywords</em></dt>
+			<dd><p>An array of <a href="#//api/name/keywords">keywords</a> to remove</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LiquidMAbstractController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
 					
                     
                     
@@ -399,7 +738,7 @@ load an ad.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 LiquidM. All rights reserved. (Last updated: 2014-01-17)</span><br />
+						<p><span class="copyright">&copy; 2014 LiquidM. All rights reserved. (Last updated: 2014-02-14)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
 						

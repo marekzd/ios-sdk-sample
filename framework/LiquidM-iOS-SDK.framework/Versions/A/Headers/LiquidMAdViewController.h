@@ -56,6 +56,34 @@
  */
 - (void)controllerDidDismissAd:(LiquidMAdViewController *)controller;
 
+/*!
+ @abstract Method called after the user clicks on the ad.
+ 
+ @param controller The LiquidMAdViewController that did register the click
+ */
+- (void)controllerDidClickAd:(LiquidMAdViewController *)controller;
+
+/*!
+ @abstract Method called just before the browser modal view will appear on screen.
+ 
+ @param controller The LiquidMAdViewController that will present the modal view
+ */
+- (void)controllerWillPresentModalView:(LiquidMAdViewController *)controller;
+
+/*!
+ @abstract Method called just before the modal view will disappear from screen.
+ 
+ @param controller The LiquidMAdViewController that will dismiss the modal view
+ */
+- (void)controllerWillDismissModalView:(LiquidMAdViewController *)controller;
+
+/*!
+ @abstract Method called after the modal view disappeared from screen.
+ 
+ @param controller The LiquidMAdViewController that did dismiss the modal view
+ */
+- (void)controllerDidDismissModalView:(LiquidMAdViewController *)controller;
+
 @end
 
 /*!
@@ -210,10 +238,22 @@
  server. For fullscreen ads (interstitials) this will present the ad on screen
  as well. For banner ads though it is still required to add the controller's
  view to the view hierarchy that is on screen.
+ 
+ @return The returned boolean value confirms if the action can be done or not.
 
  @see [LiquidMAbstractControllerDelegate controllerDidReceiveAd:]
  */
-- (void)presentAd;
+- (BOOL)presentAd;
+
+/*!
+ @abstract Displays the ad view on the screen using the specified
+ UIViewController.
+ 
+ @discussion This alters the `rootViewController` and then will call presentAd.
+ 
+ @see presentAd
+ */
+- (void)presentAdOn:(UIViewController *)vc;
 
 /*! 
  @abstract The duration in seconds of the animation between two ads.

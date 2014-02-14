@@ -1,3 +1,20 @@
+1.3.0 (2014-02-14)
+==================
+
+Bug Fixes
+---------
+
+- Fixed script tag rendering.
+- Fixed ad presentation when changing between UIViewControllers.
+- Fixed banner placement.
+- Fixed rotation bug on video player.
+
+
+Features
+--------
+
+- Added Google DFP mediation adapter and custom events.
+
 1.2.1 (2014-02-05)
 ==================
 
