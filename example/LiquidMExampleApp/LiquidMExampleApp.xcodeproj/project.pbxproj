@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F22F2A518B7686F00597E30 /* LiquidM-iOS-SDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F22F2A418B7686F00597E30 /* LiquidM-iOS-SDK.bundle */; };
+		6F22F2B518B7743D00597E30 /* LiquidM-iOS-SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79D84180184CDA5100134842 /* LiquidM-iOS-SDK.framework */; };
 		6F4BDD27185F95800097B9B9 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F4BDD26185F95800097B9B9 /* libxml2.2.dylib */; };
-		6F93C81A18991F6E0019242A /* LiquidM-iOS-SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79D84180184CDA5100134842 /* LiquidM-iOS-SDK.framework */; };
-		6F93C81B18991F730019242A /* LiquidM-iOS-SDK.framework in Resources */ = {isa = PBXBuildFile; fileRef = 79D84180184CDA5100134842 /* LiquidM-iOS-SDK.framework */; };
 		79D8412D184CC7A300134842 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79D8412C184CC7A300134842 /* Foundation.framework */; };
 		79D8412F184CC7A300134842 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79D8412E184CC7A300134842 /* CoreGraphics.framework */; };
 		79D84131184CC7A300134842 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79D84130184CC7A300134842 /* UIKit.framework */; };
@@ -48,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6F22F2A418B7686F00597E30 /* LiquidM-iOS-SDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "LiquidM-iOS-SDK.bundle"; sourceTree = "<group>"; };
+		6F22F2B118B7702300597E30 /* LiquidM-iOS-SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "LiquidM-iOS-SDK.framework"; sourceTree = "<group>"; };
 		6F4BDD26185F95800097B9B9 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		79D84129184CC7A300134842 /* LiquidMExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiquidMExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D8412C184CC7A300134842 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -89,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F93C81A18991F6E0019242A /* LiquidM-iOS-SDK.framework in Frameworks */,
+				6F22F2B518B7743D00597E30 /* LiquidM-iOS-SDK.framework in Frameworks */,
 				6F4BDD27185F95800097B9B9 /* libxml2.2.dylib in Frameworks */,
 				79D84174184CC9D500134842 /* EventKit.framework in Frameworks */,
 				79D84175184CC9D500134842 /* EventKitUI.framework in Frameworks */,
@@ -119,9 +121,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F22F2B018B7702300597E30 /* framework */ = {
+			isa = PBXGroup;
+			children = (
+				6F22F2B118B7702300597E30 /* LiquidM-iOS-SDK.framework */,
+			);
+			name = framework;
+			path = ../../framework;
+			sourceTree = "<group>";
+		};
 		79D84120184CC7A300134842 = {
 			isa = PBXGroup;
 			children = (
+				6F22F2A418B7686F00597E30 /* LiquidM-iOS-SDK.bundle */,
 				79D84132184CC7A300134842 /* LiquidMExampleApp */,
 				79D84151184CC7A300134842 /* LiquidMExampleAppTests */,
 				79D8412B184CC7A300134842 /* Frameworks */,
@@ -141,6 +153,7 @@
 		79D8412B184CC7A300134842 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6F22F2B018B7702300597E30 /* framework */,
 				6F4BDD26185F95800097B9B9 /* libxml2.2.dylib */,
 				79D84180184CDA5100134842 /* LiquidM-iOS-SDK.framework */,
 				79D84172184CC9D500134842 /* EventKit.framework */,
@@ -300,7 +313,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F93C81B18991F730019242A /* LiquidM-iOS-SDK.framework in Resources */,
+				6F22F2A518B7686F00597E30 /* LiquidM-iOS-SDK.bundle in Resources */,
 				79D84145184CC7A300134842 /* Images.xcassets in Resources */,
 				79D84137184CC7A300134842 /* InfoPlist.strings in Resources */,
 				79D84140184CC7A300134842 /* Main.storyboard in Resources */,
@@ -453,7 +466,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = "/Users/khaterine/Documents/Projects/SDKs/iOS/ReleasedSDK/ios-sdk/framework";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/externals",
+					"/Users/khaterine/Documents/Projects/SDKs/iOS/ReleasedSDK/ios-sdk/framework",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LiquidMExampleApp/LiquidMExampleApp-Prefix.pch";
 				INFOPLIST_FILE = "LiquidMExampleApp/LiquidMExampleApp-Info.plist";
@@ -467,7 +483,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = "/Users/khaterine/Documents/Projects/SDKs/iOS/ReleasedSDK/ios-sdk/framework";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/externals",
+					"/Users/khaterine/Documents/Projects/SDKs/iOS/ReleasedSDK/ios-sdk/framework",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LiquidMExampleApp/LiquidMExampleApp-Prefix.pch";
 				INFOPLIST_FILE = "LiquidMExampleApp/LiquidMExampleApp-Info.plist";
