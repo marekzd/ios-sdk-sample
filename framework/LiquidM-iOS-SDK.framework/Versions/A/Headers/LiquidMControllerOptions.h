@@ -17,6 +17,7 @@
 
 // options for banners
 #define LiquidMControllerOptionReload @"reload"
+#define LiquidMControllerOptionForceInline @"inline"
 
 // options for video
 #define LiquidMControllerOptionFullscreen @"fullscreen"

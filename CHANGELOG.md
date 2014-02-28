@@ -1,3 +1,16 @@
+1.4.0 (2014-02-28)
+==================
+
+Bug Fixes
+---------
+
+- updated server URL
+
+Features
+--------
+
+- added controller option LiquidMControllerOptionForceInline to force inline placement for fullscreen banners
+
 1.3.0 (2014-02-14)
 ==================
 

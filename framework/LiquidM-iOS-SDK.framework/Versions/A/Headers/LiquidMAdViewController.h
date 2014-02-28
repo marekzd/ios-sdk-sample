@@ -118,12 +118,13 @@
  *Options*: The following key-value pairs can be part of a dictionary that can
  be passed to some of the factory methods for creating a LiquidMAdViewController
 
- | Key                             | Value                                                                               |
- | ------------------------------- | ----------------------------------------------------------------------------------- |
- | LiquidMControllerOptionLocation | the user's location to be used for geo-targeting                                    |
- | LiquidMControllerOptionReload   | determines if automatic reloading should be used (BOOL).                            |
- | LiquidMControllerOptionToken    | actual token to be used for ad loading                                              |
- | LiquidMControllerOptionTokenTag | name (NSString) of the tag for looking up the initial token (default: `@"default"`) |
+ | Key                                | Value                                                                               |
+ | ---------------------------------- | ----------------------------------------------------------------------------------- |
+ | LiquidMControllerOptionLocation    | the user's location to be used for geo-targeting                                    |
+ | LiquidMControllerOptionReload      | determines if automatic reloading should be used (BOOL).                            |
+ | LiquidMControllerOptionToken       | actual token to be used for ad loading                                              |
+ | LiquidMControllerOptionTokenTag    | name (NSString) of the tag for looking up the initial token (default: `@"default"`) |
+ | LiquidMControllerOptionForceInline | determines if the UIViewController should be presented inline                       |
 
  **Note** that you will have to wrap the BOOL into a `NSNumber` for putting it
  into a `NSDictionary` (default is `YES`)
