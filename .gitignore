@@ -1,0 +1,9 @@
+builds
+build
+libs
+docs/html
+
+.DS_Store
+*.pbxuser
+xcuserdata
+*.xccheckout
