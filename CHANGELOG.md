@@ -1,3 +1,13 @@
+1.4.3 (2014-03-06)
+==================
+
+Bug Fixes
+---------
+
+- hide status bar when opening modal view.
+- fixed HD rendering.
+- fixed opening modal bug when the LiquidMAdViewController is added to a UITableView.
+
 1.4.2 (2014-03-04)
 ==================
 
