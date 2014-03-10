@@ -1,21 +1,48 @@
+LiquidM iOS SDK
+===============
 
-LiquidM iOS SDK Overview
-=======================
+TODO: Version, Adapter description
 
-TODO: better description or intro
+The LiquidM iOS SDK allows you to request and present ads in your app. It includes the newest mobile ad technology and provides the follwoing features:
 
+* Request & integrate banners and interative creatives based on standard adslot sizes (mma, medium rectangle etc.)
+* Request & integrate banners and interative creatives based on custom adslot sizes
+* HD banner support
+* Supports MRAID 2.0 (interactice rich media creatives)
+* Interstitials based on images
+* Pre- and post-roll Video ads (based on VAST)
+* Supports Video ads skip button
+* Video player landscape-portrait auto adaptation
+* DFP mediation (External adapter for DFP)
 
-This is the documentation for the LiquidM iOS SDK. It features integration
-instructions as well as a reference to all the classes that you'll need to
-integrate the SDK in your app.
+Repository structure
+--------------------
 
+This repository contains an example app (LiquidMExampleApp) and provides all the files to integrate the LiquidM iOS SDK in your app. We suggest that you clone this repository with git (git clone https://github.com/liquidm/ios-sdk-sample.git). If you're not familiar with git you can download the content of this repository as zip archive ([download](https://github.com/liquidm/ios-sdk-sample/archive/master.zip)).
 
-Installing the SDK
-------------------
+After you cloned this repository or unzipped the archive you'll find the following structure:
 
-1. Unzip the LiquidM iOS SDK framework
-2. Add 'LiquidMiOSSDK.framework' to your project.
-3. Add the following iOS frameworks to your project: (TODO: ???)
+* [adapter](https://github.com/liquidm/ios-sdk-sample/tree/master/adapter): This folder contains the adapter to integrate the LiquidM iOS SDK into the [DFP Network Mediation](https://developers.google.com/mobile-ads-sdk/docs/dfp/mediation)
+* [docs](https://github.com/liquidm/ios-sdk-sample/tree/master/docs): Contains a documentation of the public SDK interface
+* [example](https://github.com/liquidm/ios-sdk-sample/tree/master/example): Contains an example app which contains the LiquidM iOS SDK
+* [framework](https://github.com/liquidm/ios-sdk-sample/tree/master/framework): This folder contains the actual SDK
+* [CHANGELOG.md](https://github.com/liquidm/ios-sdk-sample/blob/master/CHANGELOG.md): Documentation of SDK changes
+* [README.md](https://github.com/liquidm/ios-sdk-sample/blob/master/README.md): this documentation
+
+Try the example app
+-------------------
+
+First of all you should try to open our example app which contains already the LiquidM iOS SDK. To do so you just have to open the project file "LiquidMExample.xcworkspace" in the [example folder](https://github.com/liquidm/ios-sdk-sample/tree/master/example) with XCode. This example app should work out of the box and you can try to start the app by pressing the play button. This starts the example app in the simulator and you can request e.g. a basic banner:
+
+![alt tag](docs/images/tutorial/example_app.png)
+
+If you see the banner which is shown above you can start to integrate the SDK in your app. If you've issues with the example app please make sure that your XCode is uptodate. We created this documentation with XCode 5.0.2.
+
+Integrate the SDK in your app
+-----------------------------
+
+1. Add 'LiquidMiOSSDK.framework' to your project.
+2. Add the following iOS frameworks to your project: (TODO: ???)
 
 <pre>
 AudioToolbox.framework
