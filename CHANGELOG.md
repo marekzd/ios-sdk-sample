@@ -1,3 +1,13 @@
+1.4.4 (2014-03-10)
+==================
+
+Bug Fixes
+---------
+
+- removed libraries that caused duplicate symbols.
+- removed built-in adapter for DFP Mediation.
+- added static library containing the adapters needed for DFP Mediation.
+
 1.4.3 (2014-03-06)
 ==================
 
