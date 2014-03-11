@@ -273,7 +273,7 @@ You can position the ad on your view just by setting its frame.
 #import &lt;LiquidM-iOS-SDK/LiquidM.h&gt;
 
 @interface ViewController () &lt;LiquidMVideoViewControllerDelegate&gt; {
-    LiquidMVideoViewController *lmAd;
+    LiquidMAdViewController *lmAd;
 }
 
 @end
