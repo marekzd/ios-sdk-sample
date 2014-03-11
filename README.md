@@ -83,7 +83,7 @@ Request ad by standard adslot sizes
 #import &lt;LiquidM-iOS-SDK/LiquidM.h&gt;
 
 @interface ViewController () &lt;LiquidMVideoViewControllerDelegate&gt; {
-    LiquidMVideoViewController *lmAd;
+    LiquidMAdViewController *lmAd;
 }
 
 @end
@@ -133,7 +133,7 @@ Request ad by custom adslot sizes
 #import &lt;LiquidM-iOS-SDK/LiquidM.h&gt;
 
 @interface ViewController () &lt;LiquidMVideoViewControllerDelegate&gt; {
-    LiquidMVideoViewController *lmAd;
+    LiquidMAdViewController *lmAd;
 }
 
 @end
@@ -177,7 +177,7 @@ Request Interstitial ads
 #import &lt;LiquidM-iOS-SDK/LiquidM.h&gt;
 
 @interface ViewController () &lt;LiquidMVideoViewControllerDelegate&gt; {
-    LiquidMVideoViewController *lmAd;
+    LiquidMAdViewController *lmAd;
 }
 
 @end
