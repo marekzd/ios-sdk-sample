@@ -38,7 +38,7 @@ First of all you should try to open our example app which contains already the L
 
 If you see the banner which is shown above you can start to integrate the SDK in your app. If you've issues with the example app please make sure that your XCode is uptodate. We created this documentation with XCode 5.0.2.
 
-Integrate the SDK in your app
+<a name="integrateSDK">Integrate the SDK in your app</a>
 -----------------------------
 
 The folder [framework](https://github.com/liquidm/ios-sdk-sample/tree/master/framework) contains a framework file "LiquidM-iOS-SDK.framework" which contains the LiquidM iOS SDK. To integrate the SDK in your app you need to copy our framework into your project folder and link your app project against our framework:
@@ -59,7 +59,7 @@ Futhermore our SDK depends on some other frameworks. Please add the following fr
 * AVFoundation.framework
 * libxml2.dylib
 
-Add the following flags to "Other Linker Flags" in "Build Settings":
+<a name="integrateSDK_flags">Add the following flags to "Other Linker Flags"</a> in "Build Settings":
 <pre>-ObjC</pre>
 Confirm that flags are set for both 'DEBUG' and 'RELEASE'.
 
@@ -316,9 +316,11 @@ You can position the ad on your view just by setting its frame.
 Why crashes my app after I requested a video ad?
 ------------------------------------------------
 
-Please make sure that you added the following flags to "Other Linker Flags" in "Build Settings":
-<pre>-ObjC</pre>
-Confirm that flags are set for both 'DEBUG' and 'RELEASE'.
+Since LiquidMiOS SDK consumes Video Ads using the [Vast 3.0 Standard] (https://www.iab.net/vast) and for performance reasons we make use of the libxml2 OSX native library for XML parsing.
+That means that you will need to prepare you App as described on:
+
+ * [Integrate the SDK in your app](#integrateSDK_flags) step. 
+ * [libxml2 on stackoverflow] (http://stackoverflow.com/questions/13341814/issue-installing-libxml2-with-homebrew-on-osx-mountain-lion)
 
 Howto integrate the LiquidM iOS SDK into DFP mediation
 ------------------------------------------------------
