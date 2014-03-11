@@ -196,6 +196,13 @@ Request Interstitial ads
                                                              options:options];
 
     lmAd.delegate = self;
+    [lmAd reloadAd];
+}
+
+- (void)controllerDidReceiveAd:(LiquidMAdViewController *)controller
+{
+    [self.view bringSubviewToFront:lmAd.view];
+    [lmAd presentAd];
 }
 
 - (void)controller:(LiquidMAdViewController *)controller didFailToReceiveAdWithError:(NSError *)error
