@@ -313,6 +313,13 @@ You can position the ad on your view just by setting its frame.
 @end
 </pre>
 
+Why crashes my app after I requested a video ad?
+------------------------------------------------
+
+Please make sure that you added the following flags to "Other Linker Flags" in "Build Settings":
+<pre>-ObjC</pre>
+Confirm that flags are set for both 'DEBUG' and 'RELEASE'.
+
 Howto integrate the LiquidM iOS SDK into DFP mediation
 ------------------------------------------------------
 
