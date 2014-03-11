@@ -214,7 +214,7 @@ Request Video ads
 #import &lt;LiquidM-iOS-SDK/LiquidM.h&gt;
 
 @interface ViewController () &lt;LiquidMVideoViewControllerDelegate&gt; {
-    LiquidMVideoViewController *lmAd;
+    LiquidMVideoViewController *videoController;
 }
 
 @end
