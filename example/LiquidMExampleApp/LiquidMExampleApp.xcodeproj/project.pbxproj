@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6F22F2A518B7686F00597E30 /* LiquidM-iOS-SDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F22F2A418B7686F00597E30 /* LiquidM-iOS-SDK.bundle */; };
-		6F22F2B518B7743D00597E30 /* LiquidM-iOS-SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79D84180184CDA5100134842 /* LiquidM-iOS-SDK.framework */; };
 		6F4BDD27185F95800097B9B9 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F4BDD26185F95800097B9B9 /* libxml2.2.dylib */; };
+		6F60485D18C9C77800E836FE /* LiquidM-iOS-SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79D84180184CDA5100134842 /* LiquidM-iOS-SDK.framework */; };
 		79D8412D184CC7A300134842 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79D8412C184CC7A300134842 /* Foundation.framework */; };
 		79D8412F184CC7A300134842 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79D8412E184CC7A300134842 /* CoreGraphics.framework */; };
 		79D84131184CC7A300134842 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79D84130184CC7A300134842 /* UIKit.framework */; };
@@ -91,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F22F2B518B7743D00597E30 /* LiquidM-iOS-SDK.framework in Frameworks */,
+				6F60485D18C9C77800E836FE /* LiquidM-iOS-SDK.framework in Frameworks */,
 				6F4BDD27185F95800097B9B9 /* libxml2.2.dylib in Frameworks */,
 				79D84174184CC9D500134842 /* EventKit.framework in Frameworks */,
 				79D84175184CC9D500134842 /* EventKitUI.framework in Frameworks */,
