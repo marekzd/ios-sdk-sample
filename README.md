@@ -320,6 +320,7 @@ Since LiquidMiOS SDK consumes Video Ads using the [Vast 3.0 Standard] (https://w
 That means that you will need to prepare you App as described on:
 
  * [Integrate the SDK in your app](#integrateSDK_flags) step. 
+ * [libxml2 on stackoverflow] (http://stackoverflow.com/questions/13341814/issue-installing-libxml2-with-homebrew-on-osx-mountain-lion)
 
 Howto integrate the LiquidM iOS SDK into DFP mediation
 ------------------------------------------------------
