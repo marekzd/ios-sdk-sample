@@ -6,7 +6,7 @@ The LiquidM iOS SDK allows you to request and present ads in your app. It includ
 * Request & integrate banners and interative creatives based on standard adslot sizes (mma, medium rectangle etc.)
 * Request & integrate banners and interative creatives based on custom adslot sizes
 * HD banner support
-* Supports [MRAID 2.0](http://www.iab.net/media/file/IAB_MRAID_v2_FINAL.pdf) (interactice rich media creatives)
+* Supports [MRAID 2.0](http://www.iab.net/media/file/IAB_MRAID_v2_FINAL.pdf) (interative rich media creatives)
 * Interstitials based on images
 * Pre- and post-roll Video ads (based on [VAST](http://www.iab.net/media/file/VASTv3.0.pdf))
 * Supports Video ads skip button
