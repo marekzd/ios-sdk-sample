@@ -316,7 +316,7 @@ You can position the ad on your view just by setting its frame.
 Why crashes my app after I requested a video ad?
 ------------------------------------------------
 
-Since LiquidMiOS SDK consumes Video Ads using the ['Vast 3.0 Standard'] (https://www.iab.net/vast) and for performance reasons we make use of the libxml2 OSX native library for XML parsing.
+Since LiquidMiOS SDK consumes Video Ads using the [Vast 3.0 Standard] (https://www.iab.net/vast) and for performance reasons we make use of the libxml2 OSX native library for XML parsing.
 That means that you will need to prepare you App as described on:
 
 [Integrate the SDK in your app](#integrateSDK_flags) step. 
