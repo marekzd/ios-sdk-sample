@@ -1,9 +1,7 @@
-LiquidM iOS SDK
-===============
+LiquidM iOS SDK v1.4.4
+======================
 
-TODO: Version, Adapter description
-
-The LiquidM iOS SDK allows you to request and present ads in your app. It includes the newest mobile ad technology and provides the follwoing features:
+The LiquidM iOS SDK allows you to request and present ads in your app. It includes the newest mobile ad technology and provides the following features:
 
 * Request & integrate banners and interative creatives based on standard adslot sizes (mma, medium rectangle etc.)
 * Request & integrate banners and interative creatives based on custom adslot sizes
@@ -13,7 +11,9 @@ The LiquidM iOS SDK allows you to request and present ads in your app. It includ
 * Pre- and post-roll Video ads (based on [VAST](http://www.iab.net/media/file/VASTv3.0.pdf))
 * Supports Video ads skip button
 * Video player landscape-portrait auto adaptation
+* Supported video formats: webm, mp4, ogg
 * DFP mediation (External adapter for [DFPNetwork Mediation](https://developers.google.com/mobile-ads-sdk/docs/dfp/mediation))
+* The majority of the LiquidM iOS SDK classes make use of ARC
 
 Repository structure
 --------------------
@@ -41,328 +41,272 @@ If you see the banner which is shown above you can start to integrate the SDK in
 Integrate the SDK in your app
 -----------------------------
 
-1. Add 'LiquidMiOSSDK.framework' to your project.
-2. Add the following iOS frameworks to your project: (TODO: ???)
+The folder [framework](https://github.com/liquidm/ios-sdk-sample/tree/master/framework) contains a framework file "LiquidM-iOS-SDK.framework" which contains the LiquidM iOS SDK. To integrate the SDK in your app you need to copy our framework into your project folder and link your app project against our framework:
 
-<pre>
-AudioToolbox.framework
-MessageUI.framework
-StoreKit.framework
-SystemConfiguration.framework
-AdSupport.framework
-CoreMedia.framework
-MediaPlayer.framework
-EventKit.framework
-EventKitUI.framework
-AVFoundation.framework
-libxml2.dylib (TODO: 3rd party library OS dependent expain build dependency) => or put it on requirements (best would be not depend on such thing)
-LiquidMiOSSDK.framework   TODO: update library name
-</pre>
+![link project with LiquidM iOS SDK](docs/images/tutorial/1-link-framework.png)
 
-![3. Add the following iOS frameworks to your project](docs/images/tutorial/1-link-framework.png)
+Futhermore our SDK depends on some other frameworks. Please add the following frameworks to your project as well:
 
-3.1. Add the following flags to 'Other Linker Flags' in 'Build Settings':
+* AudioToolbox.framework
+* MessageUI.framework
+* StoreKit.framework
+* SystemConfiguration.framework
+* AdSupport.framework
+* CoreMedia.framework
+* MediaPlayer.framework
+* EventKit.framework
+* EventKitUI.framework
+* AVFoundation.framework
+* libxml2.dylib
+
+Add the following flags to "Other Linker Flags" in "Build Settings":
 <pre>-ObjC</pre>
 Confirm that flags are set for both 'DEBUG' and 'RELEASE'.
 
 ![Add the following flags to 'Other Linker Flags' in 'Build Settings'](docs/images/tutorial/2-add-linker-flags.png)
 
-4. Add the bundle inside the framework. This can be found on LiquidMiOSSDK.framework/Versions/A/Resources
+Add the bundle inside the framework. This can be found on LiquidMiOSSDK.framework/Versions/A/Resources
 
 ![4. Add the bundle inside the framework](docs/images/tutorial/3-bundle-resources.png)
 
-5. Import the SDK in your code:
+You integrated the LiquidM iOS SDK successfully. The next section decribes different Use Cases and how you integrate them in your app.
 
-<pre>#import &lt;LiquidMiOSSDK/LiquidM.h&gt;</pre>
+Use Cases
+=========
 
-5. Declare the following properties in 'AppDelegate.h': (TODO: rename LiquidMAppDelegate to avoid confusions.. it's the Clients App not owers)
+This section contains some common uses and describes howto integrate different kind of ads in your app. Please make sure, that you replace the "TestTokn" with your personal token. The "TestTokn" contains example ads and allows you to test your implementation.
 
+Request ad by standard adslot sizes
+-----------------------------------
 <pre>
-@property (strong, nonatomic) LiquidMViewController *liquidMClient; //object for initializing the LiquidM iOS SDK
-</pre>
+#import "ViewController.h"
+#import &lt;LiquidM-iOS-SDK/LiquidM.h&gt;
 
-6. Instantiate the 'LiquidMViewController' class inside the View DLE 'viewDidLoad' method of 'AppDelegate.m': (TODO: verify this)
+@interface ViewController () &lt;LiquidMVideoViewControllerDelegate&gt; {
+    LiquidMVideoViewController *lmAd;
+}
 
-<pre>
-//Instantiate the AppDelegate
-AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+@end
 
-//Specify your LiquidMiOSSDK Options ( EXAMPLE : TODO: some can have hardcoded defaults internally e.g TestTokn => but allow overrride to customize them maybe?)
-NSString *token = @"YOUR-TOKEN";
-NSString *appName = @"YOUR-APP-NAME";
-NSString *appVersion = @"YOUR-APP-VERSION";
-NSString *appRequester = @"YOUR-APP-REQUESTER";
+@implementation ViewController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    NSMutableDictionary *options = [NSMutableDictionary dictionary];
+    [options setObject:@"TestTokn" forKey:LiquidMControllerOptionToken];
 
-or (TODO: what's the best.. use raw properties ot a Dictionary => I would prefer a plain text file outside app code.. to configure them= > no code changes)
-
-NSDictionary *options = @{
-    LiquidMControllerOptionTokenTag: @"YOUR-TOKEN",
-    LiquidMControllerOptionReload: [NSNumber numberWithBool:NO](TODO: docs do not talk about realoading ?? What's the goal of this?)
-};
-...
-
-//Instantiate LiquidMViewController to initialize your LiquidMiOSSDK
-appDelegate.liquidMClient = [[LiquidMViewController alloc]
-                            initWithOrganizationId:orgName
-                            applicationId:appName];
-
-</pre>
-
-
-Technical Details (TODO: something like this makes it more professional)
------------------
-- The majority of the Objective-C classes make use of ARC.
-- Targeted for iOS 5.0 and newer.
-- Requires Xcode 5.0.2 (or newer) to build from source.
-
-
-Compatibility with iOS 7
-------------------------
-- We have tested with iOS 7 and there are no known incompatibilities.
-- We do have support for NSURLSession in our capture of network performance metrics.
-
-
-Explicitly Setting Xcode Version
---------------------------------
-The build script makes use of the default installation of Xcode.  If you need to configure the build to use a
-different version of Xcode, please uncomment the code that assigns the path for DEVELOPER_DIR in source/Scripts/dist.sh.
-
-
-SDK Functionality for LiquidM iOS Framework
-------------------------------
-New classes (ApigeeCollection, ApigeeEntity, ApigeeDevice, ApigeeGroup) to make working with entities and collections easier. The functionality has been modeled after our JavaScript and PHP SDKs.
-
-Banners and Script Tags Request(s) *adClass* or *adSize*
----------------------------------
-
-1. Banners and Script Tags Request by *adClass*
-- LiquidMAdClassMMA
-- LiquidMAdClassRichMedia
-- .. (TODO: add here all classes options)
-
-TODO: (Unify Examples : instantiations loooks a bit differnt from banners to videos... is that need?)
-
-Banner / Script Tag Ad Example 1: requesting by BannerClass ??
--------------
-<pre>
     lmAd = [LiquidMAdViewController controllerWithRootViewController:self
                                     adClass:LiquidMAdClassMMA
                                     options:options];
+
     lmAd.delegate = self;
     [self.view addSubview:lmAd.view];
+}
+
+- (void)controllerDidReceiveAd:(LiquidMAdViewController *)controller
+{
     [self.view bringSubviewToFront:lmAd.view];
+    [lmAd presentAd];
+}
+
+- (void)controller:(LiquidMAdViewController *)controller didFailToReceiveAdWithError:(NSError *)error
+{
+    NSLog(@"Failed to receive an ad.\nError: %@", error);
+}
+
+@end
 </pre>
 
+Besides LiquidMAdClassMMA (320x53, 300x50, 6:1) the LiquidM iOS SDK provides the following standard adslot sizes:
 
-2. Banners and Script Tags Request by *adSize*
+* LiquidMAdClassMediumRectangle (300x250, 6:5)
+* LiquidMAdClassLeaderboard (728x90)
+* LiquidMAdClassFullscreen (768x768)
+* LiquidMAdClassPortrait (766x66)
+* LiquidMAdClassLandscape (1024x66)
 
-Banner / Script Tag Ad Example 2: requesting by BannerDimension (*adSize*) ??  (320x53 banner)
------------
+Request ad by custom adslot sizes
+---------------------------------
 <pre>
+#import "ViewController.h"
+#import &lt;LiquidM-iOS-SDK/LiquidM.h&gt;
+
+@interface ViewController () &lt;LiquidMVideoViewControllerDelegate&gt; {
+    LiquidMVideoViewController *lmAd;
+}
+
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    NSMutableDictionary *options = [NSMutableDictionary dictionary];
+    [options setObject:@"TestTokn" forKey:LiquidMControllerOptionToken];
+
     lmAd = [LiquidMAdViewController controllerWithRootViewController:self
                                     adSize:CGSizeMake(320,53)
-                                    options:nil];   TODO: WHY NIL???
+                                    options:options];
+
     lmAd.delegate = self;
     [self.view addSubview:lmAd.view];
+}
+
+- (void)controllerDidReceiveAd:(LiquidMAdViewController *)controller
+{
     [self.view bringSubviewToFront:lmAd.view];
+    [lmAd presentAd];
+}
+
+- (void)controller:(LiquidMAdViewController *)controller didFailToReceiveAdWithError:(NSError *)error
+{
+    NSLog(@"Failed to receive an ad.\nError: %@", error);
+}
+
+@end
+</pre>
+
+You can replace the size which is passed to the LiquidMAdViewController as "adSize" by passing a arbitrary size. Please keep in mind that requesting ads with uncommon adslot sizes will cause a very low fillrate.
+
+Request Interstitial ads
+------------------------
+<pre>
+#import "ViewController.h"
+#import &lt;LiquidM-iOS-SDK/LiquidM.h&gt;
+
+@interface ViewController () &lt;LiquidMVideoViewControllerDelegate&gt; {
+    LiquidMVideoViewController *lmAd;
+}
+
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    NSMutableDictionary *options = [NSMutableDictionary dictionary];
+    [options setObject:@"TestTokn" forKey:LiquidMControllerOptionToken];
+    [options setObject:[NSNumber numberWithBool:NO] forKey:LiquidMControllerOptionReload];
+
+    lmAd = [LiquidMAdViewController controllerWithRootViewController:self
+                                                             adClass:LiquidMAdClassRichMedia
+                                                             options:options];
+
+    lmAd.delegate = self;
+}
+
+- (void)controller:(LiquidMAdViewController *)controller didFailToReceiveAdWithError:(NSError *)error
+{
+    NSLog(@"Failed to receive an ad.\nError: %@", error);
+}
+
+@end
 </pre>
 
 
-Video Request(s)
----------------------------------
-
-1. Video *adClass* options
-    - LiquidMAdClassVideoPreRoll
-    - LiquidMAdClassVideoMidRoll
-    - LiquidMAdClassVideoPostRoll
-
-2. Video URL for the SDK user Video
-
-    2.1 Video Supported Media Types (videoURL: YOUR_VIDEO_CONTENT_URL)
-        - type: webm
-          src: ['http://stream.flowplayer.org/bauhaus/624x260.webm'] (http://stream.flowplayer.org/bauhaus/624x260.webm)
-
-        - type: mp4
-          src: ['http://stream.flowplayer.org/bauhaus/624x260.mp4'] (http://stream.flowplayer.org/bauhaus/624x260.mp4)
-
-        - type: ogg
-          src: ['http://stream.flowplayer.org/bauhaus/624x260.ogv'] (http://stream.flowplayer.org/bauhaus/624x260.ogv)
-
-
-Video Ad Example:
------------
+Request Video ads
+-----------------
 <pre>
+#import "ViewController.h"
+#import &lt;LiquidM-iOS-SDK/LiquidM.h&gt;
+
+@interface ViewController () &lt;LiquidMVideoViewControllerDelegate&gt; {
+    LiquidMVideoViewController *lmAd;
+}
+
+@end
+
+@implementation ViewController
 
  - (void)viewDidLoad
-    {
-        [super viewDidLoad];
-        NSMutableDictionary *options = [NSMutableDictionary dictionary];
-        [options setObject:@"<YOUR_TOKEN>"
-                    forKey:LiquidMControllerOptionToken];
-        [options setObject:[NSNumber numberWithBool:YES]
-                    forKey:LiquidMControllerOptionFullscreen];
+{
+    [super viewDidLoad];
+    NSMutableDictionary *options = [NSMutableDictionary dictionary];
+    [options setObject:@"TestTokn" forKey:LiquidMControllerOptionToken];
+    [options setObject:[NSNumber numberWithBool:YES] forKey:LiquidMControllerOptionFullscreen];
 
-        videoController = [LiquidMVideoViewController controllerWithAdClass:LiquidMAdClassVideoPreRoll
-                                                    videoURL:@"<YOUR_VIDEO_CONTENT_URL>"
-                                                    options:options];
+    videoController = [LiquidMVideoViewController controllerWithAdClass:LiquidMAdClassVideoPreRoll
+                                                  videoURL:@"http://stream.flowplayer.org/bauhaus/624x260.mp4"
+                                                  options:options];
 
-        videoController.delegate = self;
-        videoController.view.frame = CGRectMake(0, 64, [[UIScreen mainScreen] bounds].size.width, 180);
-        [self.view addSubview:videoController.view];
+    videoController.delegate = self;
+    videoController.view.frame = CGRectMake(0, 64, [[UIScreen mainScreen] bounds].size.width, 180);
+    [self.view addSubview:videoController.view];
 
-    }
+}
 
-    - (void)controllerDidReceiveAd:(LiquidMAdViewController *)controller
-    {
-        [videoController play];
-    }
+- (void)controllerDidReceiveAd:(LiquidMAdViewController *)controller
+{
+    [videoController play];
+}
 
+@end
 </pre>
 
+Besides LiquidMAdClassVideoPreRoll the LiquidM iOS SDK supports the following video ad types:
 
-Migrating from madvertiseiOSSDK to LiquidMiOSSDK
------------------------
+* LiquidMAdClassVideoMidRoll
+* LiquidMAdClassVideoPostRoll
 
-1 TODO: Describe behavior
+You can replace the video which is passed to the LiquidMVideoViewController as "videoURL" by passing a your own video url. Our player supports videos in the webm, mp4 and ogg format.
 
+FAQs
+====
 
-Building From Source (Only on development => we only offer binary versions of the ) (TODO: emaybe add this info in the development branch)
---------------------
-To build from source, issue this command from the /source directory of your repository: (TODO: make reference to build script)
+Howto position an ad at custom location on your view
+----------------------------------------------------
+
+You can position the ad on your view just by setting its frame.
 
 <pre>
-  ./Scripts/framework.sh
+#import "ViewController.h"
+#import &lt;LiquidM-iOS-SDK/LiquidM.h&gt;
+
+@interface ViewController () &lt;LiquidMVideoViewControllerDelegate&gt; {
+    LiquidMVideoViewController *lmAd;
+}
+
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    NSMutableDictionary *options = [NSMutableDictionary dictionary];
+    [options setObject:@"TestTokn" forKey:LiquidMControllerOptionToken];
+
+    lmAd = [LiquidMAdViewController controllerWithRootViewController:self
+                                    adClass:LiquidMAdClassMMA
+                                    options:options];
+
+    lmAd.view.frame = CGRectMake(0,
+                                 self.view.frame.size.height - lmAd.view.frame.size.height,
+                                 lmAd.view.frame.size.width,
+                                 lmAd.view.frame.size.height);
+
+    lmAd.delegate = self;
+    [self.view addSubview:lmAd.view];
+}
+
+- (void)controllerDidReceiveAd:(LiquidMAdViewController *)controller
+{
+    [self.view bringSubviewToFront:lmAd.view];
+    [lmAd presentAd];
+}
+
+- (void)controller:(LiquidMAdViewController *)controller didFailToReceiveAdWithError:(NSError *)error
+{
+    NSLog(@"Failed to receive an ad.\nError: %@", error);
+}
+
+@end
 </pre>
 
+Howto integrate the LiquidM iOS SDK into DFP mediation
+------------------------------------------------------
 
-
-TODO: Create iOS Classes with the Examples in a Examples Folder or a different project
-
-LiquidMiOSSDK As(s) Integration Examples
-===================
-
-Banner
-------
-
-	- (void)viewDidLoad
-	{
-		[super viewDidLoad];
-
-		NSDictionary *options = @{
-        	LiquidMControllerOptionTokenTag: @"TAG_OF_TOKEN",
-        	LiquidMControllerOptionReload: [NSNumber numberWithBool:NO]
-    	};
-
-
-		lmAd = [LiquidMAdViewController controllerWithRootViewController:self
-                                                             adClass:LiquidMAdClassMMA
-                                                            options:options];
-        lmAd.delegate = self;
-		[self.view addSubview:lmAd.view];
-		[self.view bringSubviewToFront:lmAd.view];
-	}
-
-Aditional parameters like tokenTag or reload should be declared inside a NSDictionary.
-
-To present the banners and interstitials in the ViewController, you should call `presentAd`
-
-	- (void)controllerDidReceiveAd:(LiquidMAdViewController *)controller
-	{
-    	[lmAd presentAd];
-	}
-
-Interstitial
-------------
-
-	- (void)viewDidLoad
-	{
-		[super viewDidLoad];
-
-		NSDictionary *options = @{
-        	LiquidMControllerOptionTokenTag: @"TAG_OF_TOKEN",
-        	LiquidMControllerOptionReload: [NSNumber numberWithBool:NO]
-    	};
-
-
-		lmAd = [LiquidMAdViewController controllerWithRootViewController:self
-                                                             adClass:LiquidMAdClassRichMedia
-                                                            options:options];
-        lmAd.delegate = self;
-	}
-
-
-Position banner at custom location on your view
------------------------------------------------
-
-You can position the ad banner on your available view just by setting its frame.
-
-	- (void)viewDidLoad
-	{
-		[super viewDidLoad];
-
-		NSDictionary *options = @{
-        	LiquidMControllerOptionReload: [NSNumber numberWithBool:YES]
-    	};
-
-		lmAd = [[LiquidMAdViewController alloc] initWithRootViewController:self
-																	   adClass:LiquidMAdClassMMA
-																	   options:options];
-		CGRect frame = CGRectMake(0,
-								  self.view.frame.size.height - lmAd.view.frame.size.height,
-								  lmAd.view.frame.size.width,
-								  lmAd.view.frame.size.height);
-		lmAd.view.frame = frame;
-		[self.view addSubview:lmAd.view];
-		[self.view bringSubviewToFront:lmAd.view];
-	}
-
-
-Getting a banner using dimensions
----------------------------------
-
-You can obtain banners by making a request with their specific dimensions.
-
-	- (void)viewDidLoad
-	{
-		[super viewDidLoad];
-
-		lmAd = [LiquidMAdViewController controllerWithRootViewController:self
-                                                                  adSize:CGSizeMake(320,53)
-                                                                 options:nil];
-        lmAd.delegate = self;
-		[self.view addSubview:lmAd.view];
-		[self.view bringSubviewToFront:lmAd.view];
-	}
-
-
-Video Ads
----------
-
-You can request video ads via `LiquidMVideoViewController` like in the following
-example:
-
-    - (void)viewDidLoad
-    {
-        [super viewDidLoad];
-        NSMutableDictionary *options = [NSMutableDictionary dictionary];
-        [options setObject:@"<YOUR_TOKEN>"
-                    forKey:LiquidMControllerOptionToken];
-        [options setObject:[NSNumber numberWithBool:YES]
-                    forKey:LiquidMControllerOptionFullscreen];
-
-           videoController = [LiquidMVideoViewController controllerWithAdClass:LiquidMAdClassVideoPreRoll
-                                                                   videoURL:@"<YOUR_VIDEO_CONTENT_URL>"
-                                                                    options:options];
-        videoController.delegate = self;
-        videoController.view.frame = CGRectMake(0,
-                                                64,
-                                                [[UIScreen mainScreen] bounds].size.width,
-                                                180);
-        [self.view addSubview:videoController.view];
-    }
-
-    - (void)controllerDidReceiveAd:(LiquidMAdViewController *)controller
-    {
-        [videoController play];
-    }
+TODO
